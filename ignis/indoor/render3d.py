@@ -34,7 +34,7 @@ def _category(st):
     fuelv = st["solid_fuel"] & (st["burning"] == 0) & ~st["burned"]
     c[fuelv] = FURN
     if "wet" in st:
-        c[st["wet"] & (st["burning"] == 0)] = WET
+        c[(st["wet"] > 0.5) & (st["burning"] == 0)] = WET
     c[st["burned"]] = BURNED
     c[st["burning"] > 0] = FIRE
     return c

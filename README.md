@@ -44,6 +44,13 @@ yet it already shows the full loop: **simulate spread → train a suppression po
 </p>
 
 <p align="center">
+  <img src="assets/playthrough.gif" width="92%" alt="synchronised plan + 3D playthrough"/><br/>
+  <em><b>One run, two synchronised views</b> — architectural <b>plan</b> (left) + <b>3D</b> (right). Fire + RL suppression + evacuation together; occupant <b>trajectories</b> overlaid (blue = escaping, green = out, red = casualty). House run: <b>8/8 escaped in 17 s</b>.</em>
+</p>
+
+**Two tasks** (see [TASKS.md](TASKS.md)): **1) RL fire suppression** (zoned sprinklers, CEM) · **2) evacuation** (fire-aware shortest path, real 1.2 m/s walking, trajectory recording). Real constants: 0.25 m voxels, `dt = 1 s`.
+
+<p align="center">
   <img src="assets/indoor3d.gif" width="70%" alt="3D house voxel fire"/><br/>
   <em>A realistic <b>15×11×5 m house</b> (5 rooms, real furniture — sofa, beds, kitchen island, wardrobes) built upward from the floor plan; fire ignites in the kitchen and climbs. Slow 3D orbit, 0.25 m voxels.</em>
 </p>
@@ -81,7 +88,10 @@ water budget, reward = fuel saved. It is a **solvable** env — a greedy oracle 
 - ✅ **RL suppression** via zoned sprinklers, CEM-trained across the distribution
 - ✅ **Gymnasium env** (`Ignis-Indoor-v0` / `-Wildfire-v0`) — reusable by others
 - ✅ **Spatial fire dataset export** with a provenance manifest (data pillar)
-- ✅ Configurable real dimensions (0.25 m voxels), full **equations in [PHYSICS.md](PHYSICS.md)**
+- ✅ **Evacuation task** — occupants escape via fire-aware shortest path (real 1.2 m/s), trajectories recorded; house: **8/8 out in 17 s**
+- ✅ **Synchronised plan + 3D playthrough** — both views time-locked, every run
+- ✅ **Realistic furnished house** — 18×13×5.5 m, 6 rooms, dining set (table + 4 chairs), beds, sofas, kitchen, bathroom, front-door exit
+- ✅ Configurable real dimensions (0.25 m voxels, `dt=1 s`), full **equations in [PHYSICS.md](PHYSICS.md)**, tasks in [TASKS.md](TASKS.md)
 
 ---
 

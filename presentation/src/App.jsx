@@ -80,13 +80,16 @@ const slides = [
     ),
   },
   {
-    kicker: "04 · Suppression", title: "An RL agent contains the fire",
+    kicker: "04 · Tasks", title: "Two tasks: put the fire out, and escape it",
     body: (
       <>
+        <figure><img src={asset("playthrough.gif")} alt="synchronised plan + 3D playthrough" />
+          <figcaption>One run, two synchronised views — plan (left) + 3D (right). Occupant trajectories:
+          blue = escaping, green = out, red = casualty. House run: <b>8/8 escaped in 17 s</b> (1.2 m/s).</figcaption></figure>
         <figure><img src={asset("indoor_compare.gif")} alt="baseline vs trained sprinklers" />
-          <figcaption>Same fire — no suppression (left) vs. trained zoned sprinklers (right).</figcaption></figure>
-        <figure><img src={asset("compare2d.gif")} alt="wildfire compare" />
-          <figcaption>Wildfire: no tanker vs. trained air-tanker — an honest counterfactual.</figcaption></figure>
+          <figcaption>RL suppression — no sprinklers (left) vs. trained zoned sprinklers (right).</figcaption></figure>
+        <p className="fine">Task 1 = RL fire suppression · Task 2 = fire-aware evacuation. Full definitions,
+        rewards, hyperparams &amp; real constants: <a href="https://github.com/Tyronita/ignis/blob/main/TASKS.md" target="_blank" rel="noreferrer">TASKS.md</a>.</p>
       </>
     ),
   },

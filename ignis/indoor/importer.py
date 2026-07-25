@@ -75,8 +75,9 @@ def from_floorplan(d):
     fuel[solid] = 0.0
     ignition = [tuple(p) for p in d.get("ignition", [])]
     budgets = d.get("budgets", {})
+    exits = [tuple(p) for p in d.get("exits", [])]
     return VoxelScene((nx, ny, nz), cell, mat, solid, fuel, ignition,
-                      budgets, room_id, room_names)
+                      budgets, room_id, room_names, exits)
 
 
 def load(path):

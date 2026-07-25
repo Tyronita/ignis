@@ -3,11 +3,16 @@
 This documents the **current** model exactly as implemented, with real spatial units, so every
 assumption can be challenged. Notation: cells/voxels indexed on a grid; `U(0,1)` is a uniform draw.
 
-## 0. Spatial units (real dimensions)
+## 0. Spatial & temporal units (real dimensions and constants)
 Each voxel is a cube of edge **`cell_size_m = 0.25 m`** (`schema.VoxelScene.cell_size_m`).
-So the example apartment grid `40 × 28 × 16` voxels = **10.0 m (x) × 7.0 m (y) × 4.0 m (z)** — a realistic
-flat with a 4 m floor-to-ceiling stack. Time advances in discrete steps (dimensionless; ~1 s/step is the
-intended calibration target, see Assumptions).
+The realistic house `72 × 52 × 22` voxels = **18 m × 13 m × 5.5 m** — a 2-bed home with 6 rooms and a
+front-door exit. Time advances at **`dt = 1.0 s/step`** (intended calibration; see Assumptions).
+
+| Constant | Symbol | Value |
+|---|---|---|
+| voxel edge | `cell_size_m` | 0.25 m |
+| time step | `dt` | 1.0 s |
+| walking speed | `v_walk` | 1.2 m/s (×0.5 in smoke) → `round(v·dt/cell)` ≈ 5 cells/step |
 
 ## 1. Outdoor wildfire — ignition (2D cellular automaton)
 A non-burning fuel cell ignites with probability
@@ -89,7 +94,18 @@ smoke%         = 100 · |air ever flamed| / |air|
 contained      = (no active flame) ∧ (burned < 99.9%)
 ```
 
-## 8. Optimizer — Cross-Entropy Method (HPO of the policy)
+## 8. Evacuation task (occupants escape with time)
+Occupants descend a **fire-aware distance field** to the nearest exit, re-solved every step:
+```
+free(x,y)  = ¬wall(x,y) ∧ ¬furniture(x,y) ∧ ¬burning_column(x,y)
+D(x,y)     = BFS shortest-path cell distance to the nearest exit over `free`   (∞ if unreachable)
+move: each step take up to  round(v_walk·dt/cell)  cells toward decreasing D
+lethal: if the occupant's cell is a burning column → casualty
+escaped: on reaching an exit cell (D = 0)
+```
+Metrics: `% escaped`, `casualties`, `mean_escape_s = mean(escape_step)·dt`. Trajectories are recorded.
+
+## 9. Optimizer — Cross-Entropy Method (HPO of the policy)
 Gradient-free; population `P=48` (wildfire) / `24` (indoor), elites `K=10/6`, generations `30/14`:
 ```
 θ_i ~ N(μ, diag(σ²)),  i = 1..P

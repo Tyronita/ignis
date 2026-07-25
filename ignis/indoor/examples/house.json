@@ -1,52 +1,64 @@
 {
-  "_comment": "A realistic single-storey house — 15 x 11 x 5 m at 0.25 m/voxel. Full-height walls, real furniture.",
-  "dims": [60, 44, 20],
+  "_comment": "Realistic 2-bed house, 18 x 13 x 5.5 m at 0.25 m/voxel (72x52x22). Real furniture + a front-door EXIT.",
+  "dims": [72, 52, 22],
   "cell_size_m": 0.25,
   "rooms": [
-    {"name": "living",   "bbox": [1, 1, 30, 22],  "height": 18},
-    {"name": "kitchen",  "bbox": [1, 22, 30, 43],  "height": 18},
-    {"name": "master",   "bbox": [30, 1, 59, 22],  "height": 18},
-    {"name": "bedroom2", "bbox": [30, 22, 46, 43], "height": 18},
-    {"name": "bathroom", "bbox": [46, 22, 59, 43], "height": 18}
+    {"name": "living",   "bbox": [1, 1, 24, 26],  "height": 20},
+    {"name": "master",   "bbox": [1, 26, 24, 51], "height": 20},
+    {"name": "dining",   "bbox": [24, 1, 48, 26], "height": 20},
+    {"name": "bedroom2", "bbox": [24, 26, 48, 51],"height": 20},
+    {"name": "kitchen",  "bbox": [48, 1, 71, 26], "height": 20},
+    {"name": "bathroom", "bbox": [48, 26, 71, 51],"height": 20}
   ],
   "walls": [
-    {"a": [1, 1],  "b": [59, 1],  "height": 19, "material": "concrete"},
-    {"a": [59, 1], "b": [59, 43], "height": 19, "material": "concrete"},
-    {"a": [59, 43],"b": [1, 43],  "height": 19, "material": "concrete"},
-    {"a": [1, 43], "b": [1, 1],   "height": 19, "material": "concrete"},
-    {"a": [30, 1], "b": [30, 43], "height": 18, "material": "drywall"},
-    {"a": [1, 22], "b": [30, 22], "height": 18, "material": "drywall"},
-    {"a": [30, 22],"b": [59, 22], "height": 18, "material": "drywall"},
-    {"a": [46, 22],"b": [46, 43], "height": 18, "material": "drywall"}
+    {"a": [1, 1],   "b": [71, 1],  "height": 21, "material": "concrete"},
+    {"a": [71, 1],  "b": [71, 51], "height": 21, "material": "concrete"},
+    {"a": [71, 51], "b": [1, 51],  "height": 21, "material": "concrete"},
+    {"a": [1, 51],  "b": [1, 1],   "height": 21, "material": "concrete"},
+    {"a": [24, 1],  "b": [24, 51], "height": 20, "material": "drywall"},
+    {"a": [48, 1],  "b": [48, 51], "height": 20, "material": "drywall"},
+    {"a": [1, 26],  "b": [71, 26], "height": 20, "material": "drywall"}
   ],
   "doors": [
-    {"at": [30, 11], "width": 3, "height": 6},
-    {"at": [15, 22], "width": 3, "height": 6},
-    {"at": [30, 32], "width": 3, "height": 6},
-    {"at": [45, 22], "width": 3, "height": 6},
-    {"at": [46, 32], "width": 3, "height": 6}
+    {"at": [24, 13], "width": 3, "height": 7},
+    {"at": [48, 13], "width": 3, "height": 7},
+    {"at": [12, 26], "width": 3, "height": 7},
+    {"at": [36, 26], "width": 3, "height": 7},
+    {"at": [60, 26], "width": 3, "height": 7},
+    {"at": [12, 1],  "width": 3, "height": 7}
   ],
+  "exits": [[12, 0]],
   "furniture": [
-    {"bbox": [3, 3, 12, 7],   "z": [1, 4], "material": "foam"},
-    {"bbox": [5, 9, 11, 12],  "z": [1, 2], "material": "wood"},
-    {"bbox": [25, 3, 29, 9],  "z": [1, 4], "material": "wood"},
-    {"bbox": [3, 14, 7, 18],  "z": [1, 4], "material": "foam"},
+    {"bbox": [3, 3, 14, 7],   "z": [1, 4], "material": "foam"},
+    {"bbox": [5, 10, 11, 14], "z": [1, 2], "material": "wood"},
+    {"bbox": [19, 3, 23, 10], "z": [1, 4], "material": "wood"},
+    {"bbox": [3, 17, 8, 22],  "z": [1, 4], "material": "foam"},
 
-    {"bbox": [2, 39, 22, 42], "z": [1, 4], "material": "wood"},
-    {"bbox": [8, 29, 17, 33], "z": [1, 4], "material": "wood"},
-    {"bbox": [2, 34, 5, 38],  "z": [1, 7], "material": "steel"},
+    {"bbox": [32, 8, 42, 16], "z": [1, 3], "material": "wood"},
+    {"bbox": [33, 5, 36, 8],  "z": [1, 3], "material": "wood"},
+    {"bbox": [38, 5, 41, 8],  "z": [1, 3], "material": "wood"},
+    {"bbox": [33, 16, 36, 19],"z": [1, 3], "material": "wood"},
+    {"bbox": [38, 16, 41, 19],"z": [1, 3], "material": "wood"},
 
-    {"bbox": [40, 3, 48, 13], "z": [1, 3], "material": "fabric"},
-    {"bbox": [54, 3, 58, 12], "z": [1, 8], "material": "wood"},
-    {"bbox": [37, 3, 40, 6],  "z": [1, 3], "material": "wood"},
-    {"bbox": [50, 17, 58, 20],"z": [1, 4], "material": "wood"},
+    {"bbox": [49, 3, 70, 6],  "z": [1, 4], "material": "wood"},
+    {"bbox": [56, 12, 66, 17],"z": [1, 4], "material": "wood"},
+    {"bbox": [49, 9, 53, 13], "z": [1, 7], "material": "steel"},
+    {"bbox": [60, 3, 64, 6],  "z": [1, 4], "material": "wood"},
 
-    {"bbox": [32, 25, 40, 35],"z": [1, 3], "material": "fabric"},
-    {"bbox": [32, 38, 39, 41],"z": [1, 8], "material": "wood"},
+    {"bbox": [4, 30, 14, 40], "z": [1, 3], "material": "fabric"},
+    {"bbox": [3, 30, 6, 33],  "z": [1, 3], "material": "wood"},
+    {"bbox": [16, 30, 19, 33],"z": [1, 3], "material": "wood"},
+    {"bbox": [3, 45, 12, 49], "z": [1, 8], "material": "wood"},
 
-    {"bbox": [48, 25, 53, 29],"z": [1, 2], "material": "glass"},
-    {"bbox": [54, 25, 58, 30],"z": [1, 3], "material": "wood"}
+    {"bbox": [27, 30, 35, 40],"z": [1, 3], "material": "fabric"},
+    {"bbox": [40, 30, 46, 34],"z": [1, 3], "material": "wood"},
+    {"bbox": [42, 35, 45, 38],"z": [1, 3], "material": "wood"},
+    {"bbox": [27, 45, 34, 49],"z": [1, 8], "material": "wood"},
+
+    {"bbox": [50, 30, 58, 35],"z": [1, 2], "material": "glass"},
+    {"bbox": [62, 30, 69, 34],"z": [1, 3], "material": "wood"},
+    {"bbox": [50, 45, 54, 49],"z": [1, 2], "material": "glass"}
   ],
-  "ignition": [[12, 40, 1], [13, 40, 1], [12, 41, 1], [11, 40, 1]],
-  "budgets": {"water": 80, "time": 110}
+  "ignition": [[61, 4, 1], [62, 4, 1], [61, 5, 1], [63, 4, 1]],
+  "budgets": {"water": 90, "time": 130}
 }
