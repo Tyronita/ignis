@@ -100,3 +100,32 @@ _From branch `feat/indoor-3d-sim` ([PR #1](https://github.com/Tyronita/ignis/pul
 - ~~JAX/GPU scale-up~~ — **parked** for now (no GPU; CEM on CPU is enough).
 
 **Rule of thumb:** anything creating a *new file/dir* (C, D, E, F-render, G, H, I, J) is parallel-safe. Only **A + B** touch the sim core — assign both to one person and land them in sequence.
+
+---
+
+## Backlog v2 — mixed (tag = who can do it) · **A = this machine** (NumPy/CPU/matplotlib/gh) · **B = teammate** (web/GPU/USD/domain)
+
+**Vegetation & wildland–urban interface (WUI)**
+- [ ] Add `bush` and `tree` materials (fuel load, ignition prob, moisture, ember behaviour) — **A**
+- [ ] Place exterior vegetation around the house; ignite the structure from a nearby burning tree — **A**
+- [ ] WUI scenario: outdoor wildfire → vegetation → structure (couple `fire_env` ↔ indoor voxel) — **A**
+- [ ] Ember / firebrand spotting (wind-carried ignition jumps) — **A**
+- [ ] Tree/bush 3D models in the explorable viewer — **B**
+
+**Furniture & materials analysis**
+- [ ] Parametric furniture library (bed/sofa/table/chairs/wardrobe templates, real sizes) — **A**
+- [ ] Real materials database: HRR curve, ignition temp, FSI/SDI, char rate per material — **A** (values validated by **B**)
+- [ ] Per-material fire-behaviour report (burn time, peak HRR, smoke) → chart — **A**
+- [ ] Higher-fidelity furniture meshes for rendering — **B**
+
+**Vehicles**
+- [ ] Add `vehicle` (car) as a high-hazard fuel (fuel tank) in garage/driveway — **A**
+- [ ] Moving vehicle: fire-truck approach + truck-mounted water cannon (movable suppression agent) — **A** (sim) / **B** (3D anim)
+- [ ] Vehicle-in-garage ignition → house-spread scenario — **A**
+
+**Mixed (viz / data / infra / standards)**
+- [ ] Unified multi-view: exterior + plan + 3D + per-room, synchronised — **A**
+- [ ] Export scenes + vegetation to glTF/USD for the web viewer — **B**
+- [ ] Occupancy / fuel-load presets per room type (code fuel-load tables) — **A** (data by **B**)
+- [ ] Demo video stitching all scenarios — **A**
+- [ ] CI to run `regenerate.py` + publish Pages on merge — **A**
