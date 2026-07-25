@@ -7,6 +7,7 @@ It runs in pure NumPy (no GPU, no heavy deps), so it clones and runs anywhere in
 yet it already shows the full loop: **simulate spread → train a suppression policy → measure the outcome.**
 
 > 🗓️ Built at a **6-hour hackathon** — [event on Luma](https://luma.com/8e27tzl0).
+> 📊 **Live presentation (10 pages):** https://tyronita.github.io/ignis/
 > Hackathon MVP (v0.1). Built to be built upon — see the [roadmap](#roadmap).
 >
 > **Reproduce everything with one readable script:** [`scripts/regenerate.py`](scripts/regenerate.py) (or `./run.ps1` / `./run.sh`) — trains the agents, saves every GIF below, runs the indoor eval, and syncs media into the presentation.

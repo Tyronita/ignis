@@ -13,7 +13,7 @@
 | **Track** | Track 3 — Free |
 | **Engine** | Custom Python/NumPy physical-AI fire simulator, packaged as a **Gymnasium** environment (CPU-only) |
 | **One-sentence pitch** | *Ignis is a physical-AI fire sandbox: generate a 3D building, simulate structural fire spreading through it, train a reinforcement-learning agent to put it out, and export spatial fire datasets with full provenance.* |
-| **Judge-accessible build link** | ⟨GITHUB-PAGES URL — added when deployed⟩ (repo: https://github.com/Tyronita/ignis) |
+| **Judge-accessible build link** | **https://tyronita.github.io/ignis/** (repo: https://github.com/Tyronita/ignis) |
 | **60–90s backup demo video** | [`assets/demo.mp4`](assets/demo.mp4) |
 | **Three strongest screenshots** | [`assets/shots/`](assets/shots/) (1: 3D indoor fire · 2: baseline vs trained suppression · 3: learning curve) |
 | **Setup / controls / expected outcome** | See below |
