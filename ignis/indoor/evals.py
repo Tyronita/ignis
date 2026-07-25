@@ -16,16 +16,6 @@ from . import importer, indoor_env as ie
 ASSETS = os.path.join(os.path.dirname(__file__), "..", "..", "assets")
 
 
-_LEGEND = [
-    ("air",           (0.93, 0.94, 0.97)),
-    ("smoke",         (0.62, 0.58, 0.66)),
-    ("wall",          (0.55, 0.55, 0.58)),
-    ("unburned fuel", (0.20, 0.62, 0.24)),
-    ("burned out",    (0.10, 0.09, 0.09)),
-    ("burning",       (1.00, 0.55, 0.00)),
-]
-
-
 def _volume_rgb(st):
     """Per-voxel RGB + a saliency priority for max-projection rendering."""
     nx, ny, nz = st["burning"].shape
@@ -33,9 +23,6 @@ def _volume_rgb(st):
     pri = np.zeros((nx, ny, nz), np.float32)
     # air = faint
     rgb[st["is_air"]] = np.array([0.93, 0.94, 0.97]); pri[st["is_air"]] = 0.1
-    # smoke-logged air (flamed_air proxy) = tinted, so the smoke_pct metric is visible
-    smoke = st["is_air"] & st["flamed_air"]
-    rgb[smoke] = np.array([0.62, 0.58, 0.66]); pri[smoke] = 0.5
     # walls = gray
     wall = st["solid"]; rgb[wall] = np.array([0.55, 0.55, 0.58]); pri[wall] = 1.0
     # unburned fuel = green
@@ -64,9 +51,6 @@ def evaluate(path, seed=0, steps=90, record=True):
     import matplotlib
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
-    from matplotlib.patches import Patch
-
-    legend_handles = [Patch(facecolor=c, edgecolor="0.4", label=name) for name, c in _LEGEND]
 
     for k in range(steps):
         if record and k % 1 == 0:
@@ -87,9 +71,7 @@ def evaluate(path, seed=0, steps=90, record=True):
                          fontsize=11, weight="bold")
             for a in (a0, a1):
                 a.set_xticks([]); a.set_yticks([])
-            fig.legend(handles=legend_handles, loc="lower center", ncol=len(_LEGEND),
-                       frameon=False, fontsize=8, bbox_to_anchor=(0.5, -0.02))
-            fig.tight_layout(rect=(0, 0.06, 1, 1))
+            fig.tight_layout()
             fig.canvas.draw()
             buf = np.frombuffer(fig.canvas.buffer_rgba(), np.uint8)
             frames.append(buf.reshape(fig.canvas.get_width_height()[::-1] + (4,))[..., :3].copy())
