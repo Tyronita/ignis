@@ -1,0 +1,17 @@
+# python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# node / vite
+node_modules/
+presentation/dist/
+presentation/node_modules/
+
+# os
+Thumbs.db
+.DS_Store
+
+# keep trained policies + assets in the repo (they're the submission):
+# policy.npy, policy3d.npy, assets/*.gif, assets/*.png are intentionally committed.
