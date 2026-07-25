@@ -21,6 +21,8 @@ from . import fire_env as fe
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
 ZSCALE = 15.0
+DROP_FADE = 14   # frames a drop trajectory stays visible before fully fading
+PATH_LEN = 40    # how many past flight positions to trail behind the tanker
 
 TERR = fe.make_terrain(3)
 fe.set_terrain(TERR)
@@ -40,12 +42,25 @@ class Scene:
         self.t = 0
         self.prev_budget = int(self.s["budget"][0])
         self.dropped = False
+        self.drops = []   # fading trail of past water-drop trajectories
+        self.path = []    # breadcrumb trail of the tanker's flight path
 
     def step(self):
         fe.step(self.s, fe.policy_action(W[None], fe.features(self.s)), self.rng)
         self.dropped = int(self.s["budget"][0]) < self.prev_budget
         self.prev_budget = int(self.s["budget"][0])
         self.t += 1
+
+        ay, ax_ = int(self.s["agent"][0, 0]), int(self.s["agent"][0, 1])
+        self.path.append((ay, ax_))
+        if len(self.path) > PATH_LEN:
+            self.path.pop(0)
+
+        for d in self.drops:
+            d["age"] += 1
+        self.drops = [d for d in self.drops if d["age"] < DROP_FADE]
+        if self.dropped:
+            self.drops.append({"ay": ay, "ax": ax_, "age": 0})
 
 
 def draw(ax, sc, azim):
@@ -67,10 +82,23 @@ def draw(ax, sc, azim):
         ax.scatter(bx, by, zt + 2.0 + 3 * inten, c="gold", s=9, depthshade=False)
         ax.scatter(bx, by, zt + 6.5, c="0.5", s=14, alpha=0.22, depthshade=False)
     ay, ax_ = int(sc.s["agent"][0, 0]), int(sc.s["agent"][0, 1])
+
+    # flight path: where the tanker has flown, so its route reads as a trajectory
+    if len(sc.path) > 1:
+        py = [p[0] for p in sc.path]; px = [p[1] for p in sc.path]
+        ax.plot(px, py, [FLY_Z] * len(sc.path), c="0.55", lw=1.3, ls="--", alpha=0.6)
+
+    # water drops: fading trail so each drop stays visible for DROP_FADE frames
+    # instead of flashing for a single frame
+    for d in sc.drops:
+        alpha = max(0.12, 1 - d["age"] / DROP_FADE)
+        dy, dx, dz = d["ay"], d["ax"], Z[d["ay"], d["ax"]]
+        ax.plot([dx, dx], [dy, dy], [FLY_Z, dz], c="deepskyblue", lw=2.5, alpha=alpha)
+        ax.scatter([dx], [dy], [dz + 0.3], c="deepskyblue", s=70 * alpha,
+                   alpha=alpha, depthshade=False)
+
     ax.scatter([ax_], [ay], [FLY_Z], marker="v", s=210, c="white",
                edgecolors="k", linewidths=1.5, depthshade=False)
-    if sc.dropped:
-        ax.plot([ax_, ax_], [ay, ay], [FLY_Z, Z[ay, ax_]], c="deepskyblue", lw=2, alpha=0.8)
     saved = fe.fuel_saved(sc.s)[0] * 100
     ax.set_title(f"Trained air-tanker over terrain  |  {saved:.0f}% fuel saved  "
                  f"|  water {int(sc.s['budget'][0])}",
