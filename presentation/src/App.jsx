@@ -43,6 +43,7 @@ export default function App() {
         <h1>Ignis</h1>
         <p className="tag">A fast fire-spread simulator &amp; RL suppression sandbox — <b>wildfire today, indoor next.</b></p>
         <p className="sub">Simulate spread → train an agent to put it out → measure the outcome. Pure NumPy, runs anywhere.</p>
+        <p className="event">🗓️ Built in 6 hours at <a href="https://luma.com/8e27tzl0" target="_blank" rel="noreferrer">this hackathon</a>.</p>
         <div className="pills">
           <span>Cellular-automaton physics</span>
           <span>Cross-Entropy RL</span>

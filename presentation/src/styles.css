@@ -26,6 +26,8 @@ body {
 }
 .hero .tag { font-size: 20px; margin: 0 0 8px; }
 .hero .sub { color: var(--muted); max-width: 640px; margin: 0 auto; }
+.hero .event { margin: 14px 0 0; font-size: 14px; }
+.hero .event a { color: var(--fire2); font-weight: 600; }
 .pills { display: flex; gap: 8px; flex-wrap: wrap; justify-content: center; margin-top: 20px; }
 .pills span {
   font-size: 13px; color: var(--fire2); border: 1px solid var(--line);
