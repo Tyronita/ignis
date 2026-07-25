@@ -83,9 +83,11 @@ const slides = [
     kicker: "04 · Tasks", title: "Two tasks: put the fire out, and escape it",
     body: (
       <>
+        <figure><img src={asset("marl.gif")} alt="two-class MARL" />
+          <figcaption><b>Two agent classes</b> — fire-engine <b>responders</b> (yellow □, advancing on the fire)
+          + <b>civilians</b> (blue → green as they escape). Responders ~halve fire damage; all civilians out.</figcaption></figure>
         <figure><img src={asset("playthrough.gif")} alt="synchronised plan + 3D playthrough" />
-          <figcaption>One run, two synchronised views — plan (left) + 3D (right). Occupant trajectories:
-          blue = escaping, green = out, red = casualty. House run: <b>8/8 escaped in 17 s</b> (1.2 m/s).</figcaption></figure>
+          <figcaption>Plan + 3D, time-locked. Trajectories: blue = escaping, green = out, red = casualty; 1.2 m/s walking.</figcaption></figure>
         <figure><img src={asset("indoor_compare.gif")} alt="baseline vs trained sprinklers" />
           <figcaption>RL suppression — no sprinklers (left) vs. trained zoned sprinklers (right).</figcaption></figure>
         <p className="fine">Task 1 = RL fire suppression · Task 2 = fire-aware evacuation. Full definitions,
@@ -108,17 +110,19 @@ const slides = [
     ),
   },
   {
-    kicker: "06 · HPO", title: "Cross-Entropy Method (gradient-free)",
+    kicker: "06 · Learners", title: "Two learners: CEM (policy search) vs PPO (deep RL)",
     body: (
       <>
-        <p>A tiny linear policy trained with CEM — no gradients, no tuning, converges in seconds:</p>
-        <pre className="arch">{`θ_i ~ N(μ, σ²),  i = 1..P                       # sample a population
-score_i = mean over S scenes of fuel_saved(θ_i)  # evaluate
-elites  = top-K by score
-μ ← mean(elites);  σ ← std(elites) + ε           # refit, ε keeps exploration`}</pre>
+        <p>We solve the <i>same</i> Gym env two ways — <b>CEM</b> (black-box policy search — <i>not</i> a
+        gradient RL algorithm) and <b>PPO</b> (genuine deep RL, MLP policy, clipped policy-gradient + GAE):</p>
+        <pre className="arch">{`CEM: θ~N(μ,σ²) → score whole episodes → keep elite θ → refit μ,σ   (no per-step credit)
+PPO: MLP policy π(a|obs)=softmax(W·h) → clipped policy-gradient + GAE  (per-step credit)`}</pre>
+        <figure><img src={asset("cem_vs_ppo.png")} alt="CEM vs PPO" />
+          <figcaption>Held-out fuel saved (same env): no-agent 47% · PPO 56% · CEM 60%. Honest finding — the
+          simple CEM baseline edges PPO, as often happens on low-dimensional control.</figcaption></figure>
         <figure><img src={asset("hpo.png")} alt="hyperparameter comparison" />
-          <figcaption>Held-out fuel saved under small / medium / large CEM settings (population, generations, scenes/eval).</figcaption></figure>
-        <p className="fine">CEM is robust for small policies and runs on CPU — no GPU/JAX needed.</p>
+          <figcaption>CEM hyperparameter sensitivity — high variance, hence the held-out validation re-rank.</figcaption></figure>
+        <p className="fine">Both run on CPU. CEM is a strong, tuning-free baseline; PPO makes the "RL" claim literal.</p>
       </>
     ),
   },

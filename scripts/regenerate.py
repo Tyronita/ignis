@@ -25,6 +25,16 @@ STEPS = [
     ("train indoor suppression (CEM)",[sys.executable, "-m", "ignis.indoor.suppress"]),
     ("synchronised plan+3D playthrough (fire+suppression+evacuation)",
         [sys.executable, "-m", "ignis.indoor.playthrough"]),
+    ("two-class MARL (fire-engine responders vs civilians)",
+        [sys.executable, "-m", "ignis.indoor.marl"]),
+    ("safe building design (ASET-RSET) comparison",
+        [sys.executable, "-m", "ignis.indoor.safety"]),
+    ("hyperparameter comparison",
+        [sys.executable, "-m", "ignis.indoor.hpo_compare"]),
+    ("VLGE-shaped trajectory export",
+        [sys.executable, "-m", "ignis.indoor.vlge_export"]),
+    # PPO (deep RL) needs the `rl` extra (stable-baselines3); run separately:
+    #   python -m ignis.indoor.train_ppo --steps 150000
     ("indoor baseline vs trained + compare gif",
         [sys.executable, "-m", "ignis.indoor.evals", "--pool", "8", "--policy", "policy_indoor.npy"]),
     ("export sample spatial dataset",

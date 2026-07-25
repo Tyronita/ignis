@@ -21,9 +21,10 @@ Two agent tasks share one simulator and one `VoxelScene`. Real constants below; 
 | **Observation** | `[per-zone burning fraction (4×3=12), water_budget_fraction]` ∈ [0,1]¹³ |
 | **Action** | `Discrete(13)` — spray one of 12 zones, or no-op |
 | **Reward** | `R = fuel_saved = 1 − burned/fuel₀` (Δ per step in the Gym env) |
-| **Algorithm** | **Cross-Entropy Method (CEM)** — gradient-free; linear policy `a = argmax(W·obs)` |
-| **Hyperparameters** | population **32**, elite **8**, generations **18**, **6** scenes/eval, σ-floor 0.03, held-out validation re-rank on 10 scenes |
-| **Result (held-out)** | **43.9% → 55.2%** fuel saved · $698 → $573 · smoke 56% → 43%. Greedy oracle = 100% (headroom). |
+| **Policy** | a 13→13 map over `[per-zone burning ×12, water budget]`. Linear `argmax(W·obs)` (169 params) for CEM; **MLP** (softmax) for PPO |
+| **Algorithms** | **CEM** — black-box *policy search* (not gradient RL): sample→score episodes→keep elites→refit. **PPO** — genuine **deep RL**: MLP policy, clipped policy-gradient + GAE. *Same Gym env, so comparable.* |
+| **Hyperparameters** | CEM: pop **32** / elite **8** / gens **18** / **6** scenes-per-eval / σ-floor 0.03 / held-out re-rank. PPO: `MlpPolicy`, n_steps 256, γ 0.99, GAE-λ 0.95, lr 3e-4, ent 0.01, ~150k steps, 6 vec-envs |
+| **Result (held-out)** | no-agent **47%** · PPO **56%** · **CEM 60%** fuel saved (`assets/cem_vs_ppo.png`). Honest finding: **CEM edges PPO** — a known result on low-dimensional control (CEM is a strong baseline). Greedy oracle = 100% (headroom). |
 | **Gym id** | `Ignis-Indoor-v0` (also `Ignis-Wildfire-v0` for the 2D baseline) |
 
 ## Task 2 — Evacuation (escape against the clock)

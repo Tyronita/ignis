@@ -24,9 +24,10 @@ def _cells_per_step(cell_size_m, in_smoke=False):
 
 
 class Evacuation:
-    def __init__(self, scene, n_agents=6, seed=0):
+    def __init__(self, scene, n_agents=6, seed=0, start_delay=0):
         self.scene = scene
         self.cell = scene.cell_size_m
+        self.start_delay = int(start_delay)   # pre-movement/recognition delay (steps)
         self.rng = np.random.default_rng(seed)
         self.exits = scene.exits or [[scene.nx // 2, 0]]
         # static navigation blockers: walls + furniture at floor level (z=1)
@@ -66,6 +67,13 @@ class Evacuation:
 
     def step(self, fire_state):
         hazard = (fire_state["burning"] > 0).any(axis=2)              # burning column = lethal
+        if self.t < self.start_delay:                                 # not moving yet (recognition)
+            for i, (x, y) in enumerate(self.pos):
+                if self.state[i] == 0 and hazard[x, y]:
+                    self.state[i] = 2
+                self.trajectories[i].append((int(x), int(y)))
+            self.t += 1
+            return self.metrics()
         smoke = fire_state.get("flamed_air")
         smoke2d = smoke.any(axis=2) if smoke is not None else np.zeros_like(hazard)
         dist = self._distance_field(hazard)

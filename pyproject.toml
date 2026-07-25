@@ -20,6 +20,7 @@ dependencies = ["numpy>=1.24", "matplotlib>=3.7", "imageio>=2.30"]
 
 [project.optional-dependencies]
 gym = ["gymnasium>=0.29"]
+rl = ["gymnasium>=0.29", "stable-baselines3>=2.3"]   # PPO (deep RL) baseline
 usd = ["usd-core>=23.0"]          # experimental / future: USD scene import
 
 [project.urls]

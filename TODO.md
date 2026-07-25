@@ -48,12 +48,16 @@ _From branch `feat/indoor-3d-sim` ([PR #1](https://github.com/Tyronita/ignis/pul
 ### B. Water as a real 3D beam — `indoor/waterbeam.py`  ⚠️ coordinate with A
 - [ ] Parabolic hose beam (ballistic arc), **object collision**, **movable hose agent**; impact removes heat/fuel
 
-### C. MARL — **two agent classes** — `indoor/marl.py`  ✅ decoupled
-- [ ] **Class 1 · Fire-engine responders** = vehicle **+** operators: engine approaches/parks on the road,
-  operators dismount, position, operate hose / truck water-cannon; response-time delay, pump/tank water supply — **A** (sim) / **B** (3D vehicle anim)
-- [ ] **Class 2 · Civilians** = occupant evacuation (baseline done) + pre-movement / exit-knowledge / panic — **A**
-- [ ] **Cooperative MARL**: per-class rewards (responders: suppress *and* protect occupants; civilians: escape),
-  PettingZoo-style API, CEM training on CPU — **A**
+### C. MARL — **two agent classes** — `indoor/marl.py`  🟡 in progress
+- [x] **Class 1 · Fire-engine responders** = vehicle **+** operators: arrive after a response delay, advance to
+  the fire, hose it (extinguish + wet radius) under a water budget — heuristic policy — **A** (sim) / **B** (3D vehicle anim)
+- [x] **Class 2 · Civilians** = occupant evacuation + pre-movement delay — **A**
+- [x] Two-class **playthrough** (plan + 3D) → `assets/marl.gif`; responders ~halve fire damage
+- [ ] **Cooperative *learned* MARL**: replace the responder heuristic with CEM/PPO, per-class rewards,
+  PettingZoo-style API — NEXT — **A**
+
+### E3. Deep RL (PPO) + comparison — `indoor/train_ppo.py`  ✅ done this pass
+- [x] PPO (SB3 `MlpPolicy`) on `Ignis-Indoor-v0`; **CEM-vs-PPO-vs-baseline** → `assets/cem_vs_ppo.png` (CEM edges PPO — honest)
 
 ### F. Scene realism & views — `indoor/generate.py`, `indoor/render_rooms.py`  ✅ decoupled
 - [ ] **Per-room views** (grid of room close-ups) + unified **indoor / outdoor / plan / room** multi-view

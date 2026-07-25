@@ -80,6 +80,15 @@ obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
 `Ignis-Indoor-v0`: `Discrete(13)` action (4×3 sprinkler zones + no-op), observation = per-zone burning +
 water budget, reward = fuel saved. It is a **solvable** env — a greedy oracle reaches 100% fuel saved.
 
+Because it's a standard Gym env, **deep RL drops in**:
+```python
+from stable_baselines3 import PPO          # pip install stable-baselines3
+model = PPO("MlpPolicy", "Ignis-Indoor-v0").learn(150_000)
+```
+We train **both** and compare (same env): **CEM** (black-box policy search) vs **PPO** (deep RL, MLP policy).
+Held-out: no-agent **47%** · PPO **56%** · **CEM 60%** — see `assets/cem_vs_ppo.png`. Honest finding: **CEM edges
+PPO** here — a known result on low-dimensional control (CEM is a strong, tuning-free baseline).
+
 ## Wins so far
 - ✅ 2D wildfire CA + air-tanker RL — **41.7% → ~98%** fuel saved
 - ✅ 3D slope-coupled terrain (fire climbs uphill) — **63.9% → 99.6%**
@@ -91,6 +100,9 @@ water budget, reward = fuel saved. It is a **solvable** env — a greedy oracle 
 - ✅ **Evacuation task** — occupants escape via fire-aware shortest path (real 1.2 m/s), trajectories recorded; house: **8/8 out in 17 s**
 - ✅ **Synchronised plan + 3D playthrough** — both views time-locked, every run
 - ✅ **Realistic furnished house** — 18×13×5.5 m, 6 rooms, dining set (table + 4 chairs), beds, sofas, kitchen, bathroom, front-door exit
+- ✅ **PPO (deep RL)** trained on the Gym env + honest **CEM-vs-PPO** comparison (CEM is competitive)
+- ✅ **Two-class MARL** — fire-engine **responders** (engine + operators) vs **civilians**; responders ~halve fire damage
+- ✅ **Safety scorer** (ASET − RSET) + **California standards** + **materials grading** — [SAFETY.md](SAFETY.md)
 - ✅ Configurable real dimensions (0.25 m voxels, `dt=1 s`), full **equations in [PHYSICS.md](PHYSICS.md)**, tasks in [TASKS.md](TASKS.md)
 
 ---
