@@ -116,8 +116,9 @@ const slides = [
 score_i = mean over S scenes of fuel_saved(θ_i)  # evaluate
 elites  = top-K by score
 μ ← mean(elites);  σ ← std(elites) + ε           # refit, ε keeps exploration`}</pre>
-        <p className="fine">P=24, K=6, gens=14. CEM is robust for small policies; PPO on a neural policy is the
-        upgrade once the sim moves to JAX/Gymnax.</p>
+        <figure><img src={asset("hpo.png")} alt="hyperparameter comparison" />
+          <figcaption>Held-out fuel saved under small / medium / large CEM settings (population, generations, scenes/eval).</figcaption></figure>
+        <p className="fine">CEM is robust for small policies and runs on CPU — no GPU/JAX needed.</p>
       </>
     ),
   },
@@ -158,7 +159,22 @@ obs, reward, terminated, truncated, info = env.step(action)`}</pre>
     ),
   },
   {
-    kicker: "10 · Results & next", title: "Results, and where this goes",
+    kicker: "10 · Safety", title: "Safe building design — ASET − RSET",
+    body: (
+      <>
+        <p><b>ASET</b> (time until untenable) vs <b>RSET</b> (detection + pre-movement + travel to exit).
+        Materials graded to ASTM E84 (Class A/B/C); checks CBC/CRC egress + sprinkler requirements.</p>
+        <figure><img src={asset("safety.png")} alt="safe building design comparison" />
+          <figcaption>Code-minimum (1 exit) vs optimised (2nd exit + Class-A soft goods): the optimised
+          design is code-compliant, has a larger safety margin and a higher score. See
+          <a href="https://github.com/Tyronita/ignis/blob/main/SAFETY.md" target="_blank" rel="noreferrer"> SAFETY.md</a>.</figcaption></figure>
+        <p className="fine">Occupant paths are also exported in the <b>VLGE trajectory shape</b>
+        (`characterSnapshots`) for platform compatibility.</p>
+      </>
+    ),
+  },
+  {
+    kicker: "11 · Results & next", title: "Results, and where this goes",
     body: (
       <>
         <table className="results">

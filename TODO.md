@@ -30,11 +30,15 @@ _From branch `feat/indoor-3d-sim` ([PR #1](https://github.com/Tyronita/ignis/pul
 - [ ] Report how CEM-suppression changes *both* fire outcomes and evacuation casualties
 
 ### E. Safety, California standards, materials grading — `SAFETY.md` + `indoor/safety.py`  ✅ decoupled
-- [ ] `SAFETY.md`: CBC/CRC (Title 24 Ch.7 fire-resistance, Ch.9 sprinklers/NFPA 13, Ch.10 egress), NFPA 72 alarms, NFPA 101, ASTM **E84** flame-spread Class A/B/C, **E119** hourly ratings, ISO 834
-- [ ] **Materials grading** table: map our materials → non-combustible / FSI / SDI / fire-rating
-- [ ] **Full safety-variable list** (the optimizer's objective space) — draft in `SAFETY.md`
-- [ ] `safety.py`: a safe-building **score** (ASET−RSET, compartmentation, egress distance, sprinkler coverage, alarm time)
-- [ ] **Safe-building-design meta-task**: CEM over building parameters to maximise the safety score
+- [x] `SAFETY.md`: CBC/CRC (Ch.7 fire-resistance, Ch.9 sprinklers/NFPA 13, Ch.10 egress), NFPA 72/101, ASTM **E84** Class A/B/C, **E119**, ISO 834
+- [x] **Materials grading** table (non-combustible / FSI class / fire role)
+- [x] **Full safety-variable list** (the optimiser's objective space)
+- [x] `safety.py`: safe-building **score** + **ASET−RSET**, code-min vs optimised comparison → `assets/safety.png`
+- [ ] **Safe-building-design meta-task**: CEM over building parameters (add/relocate exits, finishes, sprinklers) — NEXT
+
+### E2. VLGE-shaped trajectories + HPO  ✅ done this pass
+- [x] `vlge_export.py`: occupant paths → VLGE `characterSnapshots` shape (pc/velocity/movement_state/templateSize) → `datasets/vlge/`
+- [x] `hpo_compare.py`: suppression CEM under small/medium/large hyperparameters → `assets/hpo.png`
 
 ### A. Physics realism — `indoor_env.py`, `materials.py`  ⚠️ one owner
 - [ ] **Smoke transport** as an advected buoyant field + tenability layer height (replaces "air ever flamed")
@@ -64,8 +68,9 @@ _From branch `feat/indoor-3d-sim` ([PR #1](https://github.com/Tyronita/ignis/pul
 - [ ] Load a `VoxelScene` JSON in-browser, orbit/zoom/**walk**, fire playback → **the URL world**
 - Runs anywhere with Node; best owned by whoever's frontend-focused. *(Could be 🖥️ but naturally its own stream.)*
 
-### H. RL scale-up — `ignis_jax/`  ☁️ needs GPU + working JAX (broken here)
-- [ ] JAX/Gymnax port, **PPO** neural policy, vectorized envs, wandb runs
+### H. RL scale-up — `ignis_jax/`  ⏸ **PARKED** (JAX broken on this machine; not on anyone's plate for now)
+- [ ] _Deferred:_ JAX/Gymnax port, **PPO** neural policy, vectorized envs. Revisit only if a GPU box appears.
+- CEM on CPU is sufficient for current scale — no JAX dependency.
 
 ### I. USD import — `indoor/usd_import.py`  ☁️ needs OpenUSD (`usd-core`)
 - [ ] Sample `.usda` house → voxelize → `VoxelScene` (same downstream)
@@ -90,8 +95,8 @@ _From branch `feat/indoor-3d-sim` ([PR #1](https://github.com/Tyronita/ignis/pul
 
 ### 🤝 Teammate (parallel, zero conflict with the above)
 1. **G. three.js explorable web world** — biggest visible win, fully isolated (`web/`) → the URL
-2. **H. RL scale-up** (JAX/Gymnax/PPO) — if they have a GPU
-3. **I. USD import** → **J. VLGE integration**
-4. **Domain research** to validate the California/materials numbers in E
+2. **I. USD import** → **J. VLGE integration** (VLGE-shaped trajectories already exported by `vlge_export.py`)
+3. **Domain research** to validate the California/materials numbers in E (SAFETY.md)
+- ~~JAX/GPU scale-up~~ — **parked** for now (no GPU; CEM on CPU is enough).
 
 **Rule of thumb:** anything creating a *new file/dir* (C, D, E, F-render, G, H, I, J) is parallel-safe. Only **A + B** touch the sim core — assign both to one person and land them in sequence.
