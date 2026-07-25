@@ -101,9 +101,10 @@ def is_connected(scene: VoxelScene):
     """BFS over walkable (non-solid) floor voxels — are all rooms reachable?"""
     solid = scene.solid
     walk = (~solid[:, :, 1])  # floor level slice (x,y)
+    rid = scene.room_id[:, :, 1]
     nx, ny = walk.shape
-    # seed from first walkable cell
-    start = np.argwhere(walk)
+    # seed from a walkable cell INSIDE a room (not the outer air-moat around the walls)
+    start = np.argwhere((rid >= 0) & walk)
     if len(start) == 0:
         return False
     seen = np.zeros_like(walk)

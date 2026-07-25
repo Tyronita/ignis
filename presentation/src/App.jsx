@@ -70,8 +70,8 @@ const slides = [
     kicker: "03 · Demo", title: "3D structural fire — see it burn",
     body: (
       <>
-        <figure><img src={asset("indoor3d.gif")} alt="3D indoor fire" />
-          <figcaption>Procedurally generated building — translucent walls, green furniture, fire climbing inside.</figcaption></figure>
+        <figure><img src={asset("indoor3d.gif")} alt="3D house fire" />
+          <figcaption>A realistic 15×11×5 m house (5 rooms, real furniture, 0.25 m voxels) — fire ignites in the kitchen and climbs. Slow 3D orbit.</figcaption></figure>
         <div className="two">
           <figure><img src={asset("indoor.gif")} alt="indoor top/side" /><figcaption>Top view (room-to-room) + side view (plume climbs, ceiling fills).</figcaption></figure>
           <figure><img src={asset("scene3d.gif")} alt="outdoor terrain" /><figcaption>Outdoor 3D — fire climbs uphill, tanker drops from above.</figcaption></figure>

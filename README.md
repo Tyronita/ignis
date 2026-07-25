@@ -44,8 +44,8 @@ yet it already shows the full loop: **simulate spread → train a suppression po
 </p>
 
 <p align="center">
-  <img src="assets/indoor3d.gif" width="60%" alt="3D indoor voxel fire"/><br/>
-  <em>Procedurally generated 3D building — translucent walls, green furniture, fire climbing inside (matplotlib voxels).</em>
+  <img src="assets/indoor3d.gif" width="70%" alt="3D house voxel fire"/><br/>
+  <em>A realistic <b>15×11×5 m house</b> (5 rooms, real furniture — sofa, beds, kitchen island, wardrobes) built upward from the floor plan; fire ignites in the kitchen and climbs. Slow 3D orbit, 0.25 m voxels.</em>
 </p>
 
 <p align="center">

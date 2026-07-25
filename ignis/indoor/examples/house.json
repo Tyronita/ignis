@@ -1,0 +1,52 @@
+{
+  "_comment": "A realistic single-storey house — 15 x 11 x 5 m at 0.25 m/voxel. Full-height walls, real furniture.",
+  "dims": [60, 44, 20],
+  "cell_size_m": 0.25,
+  "rooms": [
+    {"name": "living",   "bbox": [1, 1, 30, 22],  "height": 18},
+    {"name": "kitchen",  "bbox": [1, 22, 30, 43],  "height": 18},
+    {"name": "master",   "bbox": [30, 1, 59, 22],  "height": 18},
+    {"name": "bedroom2", "bbox": [30, 22, 46, 43], "height": 18},
+    {"name": "bathroom", "bbox": [46, 22, 59, 43], "height": 18}
+  ],
+  "walls": [
+    {"a": [1, 1],  "b": [59, 1],  "height": 19, "material": "concrete"},
+    {"a": [59, 1], "b": [59, 43], "height": 19, "material": "concrete"},
+    {"a": [59, 43],"b": [1, 43],  "height": 19, "material": "concrete"},
+    {"a": [1, 43], "b": [1, 1],   "height": 19, "material": "concrete"},
+    {"a": [30, 1], "b": [30, 43], "height": 18, "material": "drywall"},
+    {"a": [1, 22], "b": [30, 22], "height": 18, "material": "drywall"},
+    {"a": [30, 22],"b": [59, 22], "height": 18, "material": "drywall"},
+    {"a": [46, 22],"b": [46, 43], "height": 18, "material": "drywall"}
+  ],
+  "doors": [
+    {"at": [30, 11], "width": 3, "height": 6},
+    {"at": [15, 22], "width": 3, "height": 6},
+    {"at": [30, 32], "width": 3, "height": 6},
+    {"at": [45, 22], "width": 3, "height": 6},
+    {"at": [46, 32], "width": 3, "height": 6}
+  ],
+  "furniture": [
+    {"bbox": [3, 3, 12, 7],   "z": [1, 4], "material": "foam"},
+    {"bbox": [5, 9, 11, 12],  "z": [1, 2], "material": "wood"},
+    {"bbox": [25, 3, 29, 9],  "z": [1, 4], "material": "wood"},
+    {"bbox": [3, 14, 7, 18],  "z": [1, 4], "material": "foam"},
+
+    {"bbox": [2, 39, 22, 42], "z": [1, 4], "material": "wood"},
+    {"bbox": [8, 29, 17, 33], "z": [1, 4], "material": "wood"},
+    {"bbox": [2, 34, 5, 38],  "z": [1, 7], "material": "steel"},
+
+    {"bbox": [40, 3, 48, 13], "z": [1, 3], "material": "fabric"},
+    {"bbox": [54, 3, 58, 12], "z": [1, 8], "material": "wood"},
+    {"bbox": [37, 3, 40, 6],  "z": [1, 3], "material": "wood"},
+    {"bbox": [50, 17, 58, 20],"z": [1, 4], "material": "wood"},
+
+    {"bbox": [32, 25, 40, 35],"z": [1, 3], "material": "fabric"},
+    {"bbox": [32, 38, 39, 41],"z": [1, 8], "material": "wood"},
+
+    {"bbox": [48, 25, 53, 29],"z": [1, 2], "material": "glass"},
+    {"bbox": [54, 25, 58, 30],"z": [1, 3], "material": "wood"}
+  ],
+  "ignition": [[12, 40, 1], [13, 40, 1], [12, 41, 1], [11, 40, 1]],
+  "budgets": {"water": 80, "time": 110}
+}
