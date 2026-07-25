@@ -96,11 +96,23 @@ _From branch `feat/indoor-3d-sim` ([PR #1](https://github.com/Tyronita/ignis/pul
 5. **B. Water beam** → then **C. MARL**
 6. **F. Per-room views / richer generator**
 
-### 🤝 Teammate (parallel, zero conflict with the above)
-1. **G. three.js explorable web world** — biggest visible win, fully isolated (`web/`) → the URL
-2. **I. USD import** → **J. VLGE integration** (VLGE-shaped trajectories already exported by `vlge_export.py`)
-3. **Domain research** to validate the California/materials numbers in E (SAFETY.md)
-- ~~JAX/GPU scale-up~~ — **parked** for now (no GPU; CEM on CPU is enough).
+### 🤝 Teammate (B) — parallel, zero conflict with A (all consume the stable `VoxelScene` / exported JSON)
+
+**Web / explorable world (`web/`) — the flagship → the URL**
+1. three.js viewer: load a `VoxelScene` JSON, **orbit / zoom / walk**, fire playback
+2. **3D meshes**: trees & bushes, higher-fidelity furniture, and the **fire-engine vehicle + moving animation**
+3. Overlay **trajectories** in the viewer — civilians *and* responders (VLGE-shaped data already exported by `vlge_export.py`)
+4. Viewer UX: timeline scrub, plan / 3D / per-room / exterior camera presets, then **deploy the viewer URL**
+
+**Asset & scene pipeline**
+5. **USD import** (`usd-core`) → `VoxelScene`; and **export scenes + vegetation to glTF/USD** for the viewer
+6. **VLGE integration**: export a VLGE world → voxelize; pair simulated runs with VLGE behavioural data
+
+**Domain & data (research — no sim code)**
+7. Validate **California code** numbers + **materials grading** (FSI/SDI, HRR, ignition temp) for `SAFETY.md` / materials DB
+8. **Occupancy & fuel-load presets** per room type (code fuel-load tables) → hand to A as data
+
+- ~~JAX / GPU scale-up~~ — **parked** (no GPU; CEM on CPU is enough).
 
 **Rule of thumb:** anything creating a *new file/dir* (C, D, E, F-render, G, H, I, J) is parallel-safe. Only **A + B** touch the sim core — assign both to one person and land them in sequence.
 
