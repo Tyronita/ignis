@@ -17,13 +17,17 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ENV = {**os.environ, "PYTHONPATH": ""}
 
 STEPS = [
-    ("train air-tanker (flat)",     [sys.executable, "-m", "ignis.train"]),
-    ("train air-tanker (terrain)",  [sys.executable, "-m", "ignis.train3d"]),
-    ("render 2D side-by-side gif",  [sys.executable, "-m", "ignis.viz2d", "save"]),
-    ("render 3D terrain scene gif", [sys.executable, "-m", "ignis.scene3d", "save"]),
-    ("indoor importer -> sim -> eval -> gif",
-        [sys.executable, "-m", "ignis.indoor.evals",
-         "ignis/indoor/examples/apartment.json"]),
+    ("train air-tanker (flat)",       [sys.executable, "-m", "ignis.train"]),
+    ("train air-tanker (terrain)",    [sys.executable, "-m", "ignis.train3d"]),
+    ("render 2D side-by-side gif",    [sys.executable, "-m", "ignis.viz2d", "save"]),
+    ("render 3D terrain scene gif",   [sys.executable, "-m", "ignis.scene3d", "save"]),
+    ("render 3D indoor voxel gif",    [sys.executable, "-m", "ignis.indoor.render3d"]),
+    ("train indoor suppression (CEM)",[sys.executable, "-m", "ignis.indoor.suppress"]),
+    ("indoor baseline vs trained + compare gif",
+        [sys.executable, "-m", "ignis.indoor.evals", "--pool", "8", "--policy", "policy_indoor.npy"]),
+    ("export sample spatial dataset",
+        [sys.executable, "-m", "ignis.dataset", "--episodes", "3", "--out", "datasets/indoor",
+         "--policy", "policy_indoor.npy"]),
 ]
 
 

@@ -27,7 +27,9 @@ yet it already shows the full loop: **simulate spread → train a suppression po
 |---|---|---|
 | Wildfire, flat | **41.7%** fuel saved | **~98%** |
 | Wildfire, hilly terrain | **63.9%** fuel saved | **99.6%** |
-| Indoor apartment (no suppression) | 3/3 rooms lost, $1384 damage, flashover @ step 4 | *suppression = next build* |
+| Indoor, RL zoned sprinklers (held-out buildings) | **43.9%** fuel saved · $698 | **55.2%** · $573 |
+
+*(Indoor is measured on held-out generated buildings; a greedy oracle reaches 100% fuel saved, so the linear policy has clear headroom.)*
 
 <p align="center">
   <img src="assets/compare2d.gif" width="80%" alt="2D wildfire: no tanker vs trained tanker"/><br/>
@@ -41,11 +43,44 @@ yet it already shows the full loop: **simulate spread → train a suppression po
 </p>
 
 <p align="center">
-  <img src="assets/indoor.gif" width="70%" alt="Indoor apartment fire"/><br/>
-  <em>Indoor apartment: top view (room-to-room spread) + side view (plume climbs, ceiling fills). No suppression = total loss — the baseline the future policy is scored against.</em>
+  <img src="assets/indoor3d.gif" width="60%" alt="3D indoor voxel fire"/><br/>
+  <em>Procedurally generated 3D building — translucent walls, green furniture, fire climbing inside (matplotlib voxels).</em>
 </p>
 
-<p align="center"><img src="assets/curve.png" width="60%" alt="learning curve"/></p>
+<p align="center">
+  <img src="assets/indoor_compare.gif" width="80%" alt="indoor suppression"/><br/>
+  <em>Indoor fire: no suppression (left) vs. the RL-trained zoned sprinklers (right).</em>
+</p>
+
+<p align="center">
+  <img src="assets/indoor.gif" width="70%" alt="Indoor apartment fire"/><br/>
+  <em>Top view (room-to-room spread) + side view (plume climbs, ceiling fills).</em>
+</p>
+
+<p align="center"><img src="assets/curve.png" width="48%" alt="wildfire learning curve"/> <img src="assets/curve_indoor.png" width="48%" alt="indoor learning curve"/></p>
+
+## Use it as a Gym environment
+Ignis ships as a **Gymnasium** environment so anyone can train their own agents:
+```python
+import gymnasium as gym
+import ignis.gym_env                       # registers the envs
+env = gym.make("Ignis-Indoor-v0")          # 3D structural-fire suppression (novel)
+# env = gym.make("Ignis-Wildfire-v0")      # 2D wildfire (baseline; cf. JaxWildfire)
+obs, info = env.reset(seed=0)
+obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
+```
+`Ignis-Indoor-v0`: `Discrete(13)` action (4×3 sprinkler zones + no-op), observation = per-zone burning +
+water budget, reward = fuel saved. It is a **solvable** env — a greedy oracle reaches 100% fuel saved.
+
+## Wins so far
+- ✅ 2D wildfire CA + air-tanker RL — **41.7% → ~98%** fuel saved
+- ✅ 3D slope-coupled terrain (fire climbs uphill) — **63.9% → 99.6%**
+- ✅ **3D structural/indoor fire** (rooms, walls, doors, materials, buoyancy) — *novel vs JaxWildfire*
+- ✅ **Procedural building generator** (seeded, connectivity-checked) → unlimited RL distribution
+- ✅ **RL suppression** via zoned sprinklers, CEM-trained across the distribution
+- ✅ **Gymnasium env** (`Ignis-Indoor-v0` / `-Wildfire-v0`) — reusable by others
+- ✅ **Spatial fire dataset export** with a provenance manifest (data pillar)
+- ✅ Configurable real dimensions (0.25 m voxels), full **equations in [PHYSICS.md](PHYSICS.md)**
 
 ---
 
