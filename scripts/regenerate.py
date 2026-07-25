@@ -1,0 +1,47 @@
+"""
+Regenerate every artifact from scratch, then sync them into the presentation.
+
+This is the maintained entry point — one command reproduces the whole submission:
+  python scripts/regenerate.py
+
+Steps: train (flat + terrain) -> save all GIFs/curves -> run indoor eval ->
+copy assets/ into presentation/public/ so the React deck always shows fresh media.
+"""
+
+import os
+import shutil
+import subprocess
+import sys
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ENV = {**os.environ, "PYTHONPATH": ""}
+
+STEPS = [
+    ("train air-tanker (flat)",     [sys.executable, "-m", "ignis.train"]),
+    ("train air-tanker (terrain)",  [sys.executable, "-m", "ignis.train3d"]),
+    ("render 2D side-by-side gif",  [sys.executable, "-m", "ignis.viz2d", "save"]),
+    ("render 3D terrain scene gif", [sys.executable, "-m", "ignis.scene3d", "save"]),
+    ("indoor importer -> sim -> eval -> gif",
+        [sys.executable, "-m", "ignis.indoor.evals",
+         "ignis/indoor/examples/apartment.json"]),
+]
+
+
+def run():
+    for name, cmd in STEPS:
+        print(f"\n=== {name} ===", flush=True)
+        subprocess.run(cmd, cwd=ROOT, env=ENV, check=True)
+
+    # sync media into the React deck
+    src = os.path.join(ROOT, "assets")
+    dst = os.path.join(ROOT, "presentation", "public")
+    os.makedirs(dst, exist_ok=True)
+    for f in os.listdir(src):
+        if f.lower().endswith((".gif", ".png")):
+            shutil.copy2(os.path.join(src, f), os.path.join(dst, f))
+    print("\nsynced assets -> presentation/public/")
+    print("done. all artifacts under assets/.")
+
+
+if __name__ == "__main__":
+    run()

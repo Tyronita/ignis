@@ -1,0 +1,29 @@
+{
+  "dims": [40, 28, 16],
+  "cell_size_m": 0.25,
+  "rooms": [
+    {"name": "living",  "bbox": [1, 1, 20, 27], "height": 14},
+    {"name": "kitchen", "bbox": [20, 1, 39, 14], "height": 14},
+    {"name": "bedroom", "bbox": [20, 14, 39, 27], "height": 14}
+  ],
+  "walls": [
+    {"a": [0, 0],  "b": [39, 0],  "height": 15, "material": "concrete"},
+    {"a": [39, 0], "b": [39, 27], "height": 15, "material": "concrete"},
+    {"a": [39, 27],"b": [0, 27],  "height": 15, "material": "concrete"},
+    {"a": [0, 27], "b": [0, 0],   "height": 15, "material": "concrete"},
+    {"a": [20, 0], "b": [20, 27], "height": 14, "material": "drywall"},
+    {"a": [20, 14],"b": [39, 14], "height": 14, "material": "drywall"}
+  ],
+  "doors": [
+    {"at": [20, 13], "width": 3, "height": 5},
+    {"at": [30, 14], "width": 3, "height": 5}
+  ],
+  "furniture": [
+    {"bbox": [3, 3, 10, 8],   "z": [1, 3], "material": "foam"},
+    {"bbox": [24, 18, 32, 24],"z": [1, 3], "material": "fabric"},
+    {"bbox": [22, 3, 27, 11], "z": [1, 4], "material": "wood"},
+    {"bbox": [30, 4, 35, 9],  "z": [1, 2], "material": "wood"}
+  ],
+  "ignition": [[24, 6, 1], [25, 6, 1], [24, 7, 1], [23, 6, 1], [24, 6, 2]],
+  "budgets": {"water": 60, "time": 90}
+}
