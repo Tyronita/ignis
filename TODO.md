@@ -78,8 +78,8 @@ _From branch `feat/indoor-3d-sim` ([PR #1](https://github.com/Tyronita/ignis/pul
 ### I. USD import — `indoor/usd_import.py`  ☁️ needs OpenUSD (`usd-core`)
 - [ ] Sample `.usda` house → voxelize → `VoxelScene` (same downstream)
 
-### J. VLGE integration — `indoor/vlge_import.py`  ☁️ needs VLGE account/export
-- [ ] Export a VLGE world (USD) → voxelize; pair with VLGE behavioral data
+### J. VLGE integration — `indoor/vlge_import.py`  ✅ **DONE**
+- [x] Export a VLGE world → voxelize; pair with VLGE behavioural data _(+ VLGE-shaped trajectory export via `vlge_export.py`)_
 
 ### Domain research  ☁️ (no coding — validate E's numbers)
 - [ ] Confirm California code specifics (CRC sprinkler mandate, egress distances, FSI classes per finish)
@@ -106,7 +106,7 @@ _From branch `feat/indoor-3d-sim` ([PR #1](https://github.com/Tyronita/ignis/pul
 
 **Asset & scene pipeline**
 5. **USD import** (`usd-core`) → `VoxelScene`; and **export scenes + vegetation to glTF/USD** for the viewer
-6. **VLGE integration**: export a VLGE world → voxelize; pair simulated runs with VLGE behavioural data
+6. ~~**VLGE integration**~~ — ✅ **DONE** (VLGE world → voxelize + VLGE-shaped trajectories exported)
 
 **Domain & data (research — no sim code)**
 7. Validate **California code** numbers + **materials grading** (FSI/SDI, HRR, ignition temp) for `SAFETY.md` / materials DB
