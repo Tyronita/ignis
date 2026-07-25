@@ -48,9 +48,12 @@ _From branch `feat/indoor-3d-sim` ([PR #1](https://github.com/Tyronita/ignis/pul
 ### B. Water as a real 3D beam — `indoor/waterbeam.py`  ⚠️ coordinate with A
 - [ ] Parabolic hose beam (ballistic arc), **object collision**, **movable hose agent**; impact removes heat/fuel
 
-### C. MARL agents — `indoor/marl.py`  ✅ decoupled
-- [ ] Multi-agent **suppression** (N hose/sprinkler agents) + multi-agent **evacuation**
-- [ ] **Dual-task** coordination; PettingZoo-style API; CEM multi-agent training (CPU ok)
+### C. MARL — **two agent classes** — `indoor/marl.py`  ✅ decoupled
+- [ ] **Class 1 · Fire-engine responders** = vehicle **+** operators: engine approaches/parks on the road,
+  operators dismount, position, operate hose / truck water-cannon; response-time delay, pump/tank water supply — **A** (sim) / **B** (3D vehicle anim)
+- [ ] **Class 2 · Civilians** = occupant evacuation (baseline done) + pre-movement / exit-knowledge / panic — **A**
+- [ ] **Cooperative MARL**: per-class rewards (responders: suppress *and* protect occupants; civilians: escape),
+  PettingZoo-style API, CEM training on CPU — **A**
 
 ### F. Scene realism & views — `indoor/generate.py`, `indoor/render_rooms.py`  ✅ decoupled
 - [ ] **Per-room views** (grid of room close-ups) + unified **indoor / outdoor / plan / room** multi-view
@@ -118,10 +121,12 @@ _From branch `feat/indoor-3d-sim` ([PR #1](https://github.com/Tyronita/ignis/pul
 - [ ] Per-material fire-behaviour report (burn time, peak HRR, smoke) → chart — **A**
 - [ ] Higher-fidelity furniture meshes for rendering — **B**
 
-**Vehicles**
-- [ ] Add `vehicle` (car) as a high-hazard fuel (fuel tank) in garage/driveway — **A**
-- [ ] Moving vehicle: fire-truck approach + truck-mounted water cannon (movable suppression agent) — **A** (sim) / **B** (3D anim)
-- [ ] Vehicle-in-garage ignition → house-spread scenario — **A**
+**Two agent classes: responders vs civilians**
+- [ ] **Fire-engine responders** (vehicle + operators): engine drives up the road & parks; operators dismount,
+  position, operate hose / truck water-cannon; realistic response-time delay; pump/tank water supply — **A** (sim) / **B** (3D vehicle anim)
+- [ ] **Civilians**: evacuation agents (baseline done) + pre-movement / exit-knowledge / panic / group behaviour — **A**
+- [ ] Cooperative objective: responders **suppress *and* protect civilians** → score lives saved + damage — **A**
+- [ ] Parked **car as high-hazard fuel** (fuel tank) in garage/driveway; garage ignition → house spread — **A**
 
 **Mixed (viz / data / infra / standards)**
 - [ ] Unified multi-view: exterior + plan + 3D + per-room, synchronised — **A**
