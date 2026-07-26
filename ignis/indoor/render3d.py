@@ -17,22 +17,29 @@ from . import indoor_env as ie
 ASSETS = os.path.join(os.path.dirname(__file__), "..", "..", "assets")
 
 # category codes ordered by saliency (higher wins a downsample block)
-AIR, WALL, FURN, WET, BURNED, FIRE = 0, 1, 2, 3, 4, 5
+from . import materials as M
+AIR, WALL, F_WOOD, F_SOFT, F_APPL, WET, BURNED, FIRE = 0, 1, 2, 3, 4, 5, 6, 7
 _COLORS = {
     WALL:   (0.55, 0.55, 0.60, 0.09),
-    FURN:   (0.20, 0.62, 0.24, 0.95),
+    F_WOOD: (0.71, 0.51, 0.25, 0.97),   # wood / drywall / paper = brown
+    F_SOFT: (0.29, 0.64, 0.87, 0.97),   # foam / fabric = upholstery blue
+    F_APPL: (0.62, 0.64, 0.67, 0.97),   # steel / glass = appliance grey
     WET:    (0.15, 0.45, 0.85, 0.85),
     BURNED: (0.10, 0.09, 0.09, 0.95),
     FIRE:   (1.00, 0.45, 0.05, 0.98),
 }
+_BUCKET = np.zeros(M.N_MATERIALS, np.int8)
+for _n, _c in [("wood", F_WOOD), ("drywall", F_WOOD), ("paper", F_WOOD),
+               ("foam", F_SOFT), ("fabric", F_SOFT), ("steel", F_APPL), ("glass", F_APPL)]:
+    _BUCKET[M.id_of(_n)] = _c
 
 
 def _category(st):
-    """Per-voxel category code (nx,ny,nz)."""
+    """Per-voxel category code (nx,ny,nz) — furniture coloured by material."""
     c = np.zeros(st["burning"].shape, np.int8)
     c[st["solid"]] = WALL
     fuelv = st["solid_fuel"] & (st["burning"] == 0) & ~st["burned"]
-    c[fuelv] = FURN
+    c[fuelv] = _BUCKET[st["material"][fuelv]]
     if "wet" in st:
         c[(st["wet"] > 0.5) & (st["burning"] == 0)] = WET
     c[st["burned"]] = BURNED

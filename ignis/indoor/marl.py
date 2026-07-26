@@ -31,15 +31,40 @@ RESP_WATER = 120           # total hose steps
 
 class ResponderTeam:
     """Fire-engine operators: arrive, advance to the fire, hose it down."""
-    def __init__(self, scene, n=RESP_N, delay_s=RESP_DELAY_S, seed=0):
+    def __init__(self, scene, n=RESP_N, delay_s=RESP_DELAY_S, seed=0, policy_w=None):
         self.scene = scene
         self.delay = int(delay_s / evacuate.DT_S)
-        ex = (scene.exits or [[scene.nx // 2, 0]])[0]
-        self.pos = np.array([[int(ex[0]), min(scene.ny - 2, int(ex[1]) + 2)]] * n, np.int32)
+        self.exit = (scene.exits or [[scene.nx // 2, 0]])[0]
+        self.pos = np.array([[int(self.exit[0]), min(scene.ny - 2, int(self.exit[1]) + 2)]] * n, np.int32)
         self.water = np.full(n, RESP_WATER)
         self.block = scene.solid[:, :, 1]
         self.trajectories = [[] for _ in range(n)]
         self.t = 0
+        # optional LEARNED targeting: score coarse zones by [burning, -dist_to_self, -dist_to_exit]
+        self.policy_w = policy_w
+        self._xb = np.linspace(0, scene.nx, 5).astype(int)
+        self._yb = np.linspace(0, scene.ny, 4).astype(int)
+        self._zc = [((self._xb[i] + self._xb[i+1]) // 2, (self._yb[j] + self._yb[j+1]) // 2)
+                    for i in range(4) for j in range(3)]
+
+    def _target(self, x, y, burning, st):
+        if self.policy_w is None:                              # heuristic: nearest burning cell
+            fires = np.argwhere(burning)
+            d = np.abs(fires[:, 0] - x) + np.abs(fires[:, 1] - y)
+            return fires[d.argmin()]
+        N = self.scene.nx + self.scene.ny                      # learned: score zones
+        best, bt = -1e9, (x, y)
+        for zi, (cx, cy) in enumerate(self._zc):
+            i, j = zi // 3, zi % 3
+            bf = burning[self._xb[i]:self._xb[i+1], self._yb[j]:self._yb[j+1]].mean()
+            if bf <= 0:
+                continue
+            feats = np.array([bf, -(abs(cx - x) + abs(cy - y)) / N,
+                              -(abs(cx - self.exit[0]) + abs(cy - self.exit[1])) / N])
+            s = float(self.policy_w @ feats)
+            if s > best:
+                best, bt = s, (cx, cy)
+        return bt
 
     def _advance(self, x, y, tx, ty):
         for _ in range(RESP_SPEED):
@@ -61,8 +86,7 @@ class ResponderTeam:
         for i in range(len(self.pos)):
             x, y = self.pos[i]
             if self.t >= self.delay and len(fires) and self.water[i] > 0:
-                d = np.abs(fires[:, 0] - x) + np.abs(fires[:, 1] - y)
-                tx, ty = fires[d.argmin()]
+                tx, ty = self._target(x, y, burning, st)
                 x, y = self._advance(x, y, tx, ty)
                 # hose: extinguish + wet a radius (all z)
                 x0, x1 = max(0, x - HOSE_RADIUS), x + HOSE_RADIUS + 1
@@ -76,11 +100,12 @@ class ResponderTeam:
             self.trajectories[i].append((int(x), int(y)))
 
 
-def run(scene, responders=True, n_civ=12, civ_delay_s=18, steps=140, seed=0, record=False):
+def run(scene, responders=True, n_civ=12, civ_delay_s=18, steps=140, seed=0, record=False,
+        resp_policy=None):
     st = suppress.init(scene)
     ev = evacuate.Evacuation(scene, n_agents=n_civ, seed=seed,
                              start_delay=int(civ_delay_s / evacuate.DT_S))
-    team = ResponderTeam(scene, seed=seed) if responders else None
+    team = ResponderTeam(scene, seed=seed, policy_w=resp_policy) if responders else None
     rng = np.random.default_rng(seed)
     frames = []
     for k in range(steps):
@@ -132,15 +157,15 @@ def render_gif(scene, out=None, steps=140, frames=20, down=3, seed=0, fps=10):
             fig = plt.figure(figsize=(14, 6.6), dpi=100)
             axp = fig.add_subplot(1, 2, 1)
             axp.imshow(plan_rgb(st, scene), origin="lower", interpolation="nearest")
-            for i in range(len(ev.pos)):                       # civilians
+            for i in range(len(ev.pos)):                       # civilians (big circles)
                 axp.scatter(ev.pos[i, 0], ev.pos[i, 1], c=civ_col[int(ev.state[i])],
-                            s=34, edgecolors="k", linewidths=0.5, zorder=5)
-            for i in range(len(team.pos)):                     # responders (engine operators)
+                            s=120, edgecolors="white", linewidths=1.3, zorder=5)
+            for i in range(len(team.pos)):                     # responders (big yellow squares)
                 tr = np.array(team.trajectories[i])
                 if len(tr) > 1:
-                    axp.plot(tr[:, 0], tr[:, 1], c="#8e44ad", lw=1.4, alpha=0.8)
+                    axp.plot(tr[:, 0], tr[:, 1], c="#8e44ad", lw=2.2, alpha=0.85)
                 axp.scatter(team.pos[i, 0], team.pos[i, 1], c="#f1c40f", marker="s",
-                            s=70, edgecolors="#8e44ad", linewidths=1.5, zorder=6)
+                            s=300, edgecolors="#8e44ad", linewidths=2.4, zorder=6)
             axp.set_xticks([]); axp.set_yticks([])
             axp.set_title(f"PLAN — escaped {em['escaped']}/{em['occupants']}  "
                           f"casualties {em['casualties']}   (yellow□=responders, blue=civilians)",
@@ -151,6 +176,17 @@ def render_gif(scene, out=None, steps=140, frames=20, down=3, seed=0, fps=10):
             for code, col in r3._COLORS.items():
                 fc[c == code] = col
             ax3.voxels(filled, facecolors=fc, edgecolor=(0, 0, 0, 0.05))
+            # agent markers in 3D (mapped into downsampled voxel coords, raised above the floor)
+            az = c.shape[2] * 0.28
+            cx = ev.pos[:, 0] / down + 0.5; cy = ev.pos[:, 1] / down + 0.5
+            for stt, col in ((0, "#1f6feb"), (1, "#2ecc71"), (2, "#e74c3c")):
+                mk = ev.state == stt
+                if mk.any():
+                    ax3.scatter(cx[mk], cy[mk], np.full(int(mk.sum()), az), c=col, s=70,
+                                edgecolors="white", linewidths=0.8, depthshade=False, zorder=10)
+            ax3.scatter(team.pos[:, 0] / down + 0.5, team.pos[:, 1] / down + 0.5,
+                        np.full(len(team.pos), az + 1.2), c="#f1c40f", marker="s", s=170,
+                        edgecolors="#8e44ad", linewidths=1.6, depthshade=False, zorder=11)
             ax3.set_axis_off(); ax3.view_init(elev=26, azim=azim)
             ax3.set_box_aspect((c.shape[0], c.shape[1], c.shape[2]))
             mm = ie.metrics(st)

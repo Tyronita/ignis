@@ -29,6 +29,22 @@ X, Yg = np.meshgrid(np.arange(fe.N), np.arange(fe.N))
 FLY_Z = Z.max() + 7.0
 W = np.load(os.path.join(ROOT, "policy3d.npy"))
 
+# --- vegetation on the terrain: trees + bushes that ignite as the fire reaches them ---
+_vrng = np.random.default_rng(1)
+TREES = np.stack([_vrng.integers(2, fe.N - 2, 60), _vrng.integers(2, fe.N - 2, 60)], 1)
+BUSHES = np.stack([_vrng.integers(2, fe.N - 2, 120), _vrng.integers(2, fe.N - 2, 120)], 1)
+TREE_H = 6.0
+_GREEN = np.array([0.13, 0.5, 0.13]); _ORANGE = np.array([1.0, 0.4, 0.05])
+_DARK = np.array([0.10, 0.08, 0.06])
+
+
+def _veg(pts, sc):
+    x, y = pts[:, 0], pts[:, 1]
+    b = sc.s["burning"][0][y, x] > 0
+    burned = (sc.s["fuel"][0][y, x] <= 0) & ~b
+    col = np.tile(_GREEN, (len(pts), 1)); col[burned] = _DARK; col[b] = _ORANGE
+    return col, Z[y, x]
+
 
 class Scene:
     def __init__(self, seed):
@@ -55,6 +71,12 @@ def draw(ax, sc, azim):
     rgba = np.concatenate([rgb, np.ones((*rgb.shape[:2], 1), np.float32)], -1)
     ax.plot_surface(X, Yg, Z, facecolors=rgba, rstride=1, cstride=1,
                     linewidth=0, antialiased=False, shade=False)
+    # vegetation: tree canopies (^) on trunks + low bushes (o), coloured by fire state
+    tcol, tbase = _veg(TREES, sc)
+    ax.scatter(TREES[:, 0], TREES[:, 1], tbase + TREE_H, c=tcol, marker="^", s=120, depthshade=False)
+    ax.scatter(TREES[:, 0], TREES[:, 1], tbase + TREE_H * 0.45, c=[[0.4, 0.26, 0.13]], s=14, depthshade=False)
+    bcol, bbase = _veg(BUSHES, sc)
+    ax.scatter(BUSHES[:, 0], BUSHES[:, 1], bbase + 1.2, c=bcol, marker="o", s=40, depthshade=False)
     burning = sc.s["burning"][0] > 0
     if burning.any():
         by, bx = np.where(burning)
