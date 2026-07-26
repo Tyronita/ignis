@@ -1,0 +1,300 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Ignis — deck v2</title>
+<style>
+:root{--fire1:#ff6a2b;--fire2:#ffb020;--good:#37c98a;--line:#2a2530;--muted:#a99fa8;--panel:#16131b;}
+*{box-sizing:border-box} html,body{height:100%}
+body{margin:0;background:radial-gradient(1200px 700px at 72% -12%,#2c1410 0%,#0c0a0e 55%);color:#f4eff2;font:16px/1.5 Segoe UI,Arial,sans-serif}
+.deck{max-width:1060px;margin:0 auto;height:100vh;display:flex;flex-direction:column;padding:0 20px}
+.bar{height:3px;background:var(--line);border-radius:3px;margin-top:10px;overflow:hidden}
+.bar>div{height:100%;width:0;background:linear-gradient(90deg,var(--fire1),var(--fire2));transition:width .2s}
+.top{display:flex;justify-content:space-between;align-items:center;padding:8px 2px}
+.brand{font-weight:800;background:linear-gradient(90deg,var(--fire1),var(--fire2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cnt{color:var(--muted);font-size:13px}
+.slide{flex:1;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 32px;display:none;flex-direction:column;overflow:hidden}
+.slide.hero{justify-content:center}
+.kick{text-transform:uppercase;letter-spacing:2.5px;font-size:12px;color:var(--fire1);font-weight:800}
+h1{font-size:54px;margin:0;letter-spacing:-2px;background:linear-gradient(90deg,var(--fire1),var(--fire2));-webkit-background-clip:text;background-clip:text;color:transparent}
+h2{font-size:26px;margin:4px 0 14px;line-height:1.15}
+.row{display:flex;flex-direction:column;gap:12px;flex:1;min-height:0;justify-content:center}
+.row.text{}
+.row>div:last-child{text-align:center}
+.full{flex:1;display:flex;flex-direction:column;justify-content:center;min-height:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+img{max-width:820px;width:100%;max-height:46vh;object-fit:contain;border-radius:10px;border:1px solid var(--line);display:block;margin:0 auto}
+.two img{max-height:38vh}
+p{color:#eadfe6;margin:9px 0;font-size:16px}
+.lead{font-size:18px}
+.fine{color:var(--muted);font-size:13.5px}
+.tag{color:var(--muted);font-size:12.5px;text-align:center;margin-top:6px}
+code{background:#221d29;padding:1px 6px;border-radius:5px;color:var(--fire2);font-size:12.5px}
+pre{background:#0f0c14;border:1px solid var(--line);border-radius:10px;padding:12px;overflow:auto;font-size:11.5px;line-height:1.45;color:#cdbfce;margin:6px 0}
+.formula{text-align:center;font-size:19px;margin:10px 0;padding:14px;background:#120f16;border:1px dashed var(--line);border-radius:10px;color:var(--fire2)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th,td{text-align:left;padding:6px 9px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-size:10px;text-transform:uppercase;letter-spacing:1px}
+.good{color:var(--good);font-weight:700}.b{color:var(--muted)}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.pills span{font-size:12px;color:var(--fire2);border:1px solid var(--line);background:#120f16;padding:4px 11px;border-radius:999px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;font-size:12.5px;margin-top:8px}
+ul{margin:6px 0;padding-left:18px}li{margin:6px 0;color:#eadfe6}
+.nav{display:flex;justify-content:space-between;align-items:center;padding:10px 2px}
+.nav button{background:var(--panel);color:#f4eff2;border:1px solid var(--line);padding:7px 15px;border-radius:8px;cursor:pointer}
+.dots{display:flex;gap:6px;flex-wrap:wrap}.dot{width:8px;height:8px;border-radius:50%;background:var(--line);cursor:pointer}.dot.on{background:var(--fire1)}
+a{color:var(--fire2)}
+</style></head>
+<body><div class="deck">
+<div class="bar"><div id="bar"></div></div>
+<div class="top"><span class="brand">🔥 Ignis</span><span class="cnt" id="cnt"></span></div>
+
+<!-- 1 HERO -->
+<section class="slide hero">
+  <div class="row">
+    <div>
+      <h1>🔥 Ignis</h1>
+      <p class="lead">When a fire breaks out, the building changes by the second — hallways block, smoke fills,
+      and the safe way out disappears.</p>
+      <p>Ignis simulates that changing world, so agents — <b>people escaping</b> and <b>responders fighting the
+      fire</b> — can be trained and stress-tested across <b>thousands of emergencies</b>, and every run collected
+      as data to build more robust response.</p>
+      <div class="pills"><span>3D fire simulation</span><span>People + responders</span><span>Trained agents</span><span>Safer buildings</span></div>
+    </div>
+    <div><img src="marl.gif">
+      <div class="legend"><span style="color:#f1c40f">■ responders</span><span style="color:#1f6feb">● escaping</span><span style="color:#2ecc71">● out</span><span style="color:#e74c3c">● casualty</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2 PROBLEM -->
+<section class="slide">
+  <div class="kick">Problem</div>
+  <h2>The building changes by the second</h2>
+  <div class="row text">
+    <div>
+      <p class="lead">A path that was safe a moment ago is suddenly blocked by fire or smoke.</p>
+      <p>For anyone moving through the building — an occupant, a responder, a future rescue robot — a policy that
+      worked yesterday can fail now, because the environment itself has changed. We wanted to study exactly how
+      robust those decisions are during an emergency.</p>
+    </div>
+    <div><img src="playthrough.gif"><div class="tag">Agents moving through a fire that keeps changing the map</div></div>
+  </div>
+</section>
+
+<!-- 3 APPROACH -->
+<section class="slide">
+  <div class="kick">Approach</div>
+  <h2>We simulate the fire — fast</h2>
+  <div class="row text">
+    <div>
+      <p class="lead">First, model how a fire spreads through a space over time.</p>
+      <p>A lightweight cellular automaton spreads fire by wind, slope, buoyancy and the materials it meets — cheap
+      enough to run millions of times. As it grows, areas turn hazardous and routes get harder.</p>
+      <div class="formula">p<sub>ignite</sub> = 1 − (1 − p<sub>base</sub>)<sup> E</sup> · p<sub>mult</sub>(material)</div>
+    </div>
+    <div><img src="compare2d.gif"><div class="tag">Fire spread — free-burn vs. an agent fighting it</div></div>
+  </div>
+</section>
+
+<!-- 4 SETUP / CONFIG -->
+<section class="slide">
+  <div class="kick">The setup</div>
+  <h2>One file describes the whole world</h2>
+  <div class="row text">
+    <div>
+      <p>Every scenario is a single JSON <b>config</b> — geometry, obstacles, materials, ignition, budgets, exits:</p>
+<pre>{ "dims":[72,52,22], "cell_size_m":0.25,   // 18×13×5.5 m
+  "walls":[{a,b,height,material}],   // OBSTACLES → block spread + movement
+  "doors":[{at,width,height}],       // carve openings
+  "furniture":[{bbox,z,material}],   // fuel objects (ORDER matters)
+  "ignition":[[x,y,z]], "exits":[[x,y]], "budgets":{water,time} }</pre>
+      <p class="fine"><b>Build order:</b> walls (obstacles) → carve doors → fill furniture (later overrides earlier)
+      → fuel from material → ignition. Change the file, change the emergency.</p>
+    </div>
+    <div><img src="indoor.gif"><div class="tag">Config → a real building: rooms, obstacles, fuel</div></div>
+  </div>
+</section>
+
+<!-- 5 MATERIALS -->
+<section class="slide">
+  <div class="kick">Materials</div>
+  <h2>What burns, and what blocks</h2>
+  <div class="row text">
+    <div>
+      <table><tr><th>material</th><th>blocks?</th><th>catches</th><th>burns</th><th>$</th></tr>
+      <tr><td>concrete / steel / glass</td><td class="good">yes</td><td>—</td><td>—</td><td>6–12</td></tr>
+      <tr><td>drywall</td><td>no</td><td>low</td><td>short</td><td>3</td></tr>
+      <tr><td>wood</td><td>no</td><td>med</td><td>long</td><td>5</td></tr>
+      <tr><td>fabric / foam</td><td>no</td><td>high</td><td>fast + smoky</td><td>4</td></tr></table>
+      <p class="fine">Each material sets how readily it ignites, how long it burns, and its value. That's the hook
+      into building design — swap finishes or add compartments, then re-run.</p>
+    </div>
+    <div><img src="indoor3d.gif"><div class="tag">Furniture coloured by material (wood / upholstery / appliance)</div></div>
+  </div>
+</section>
+
+<!-- 6 SCENARIOS -->
+<section class="slide">
+  <div class="kick">Scenarios</div>
+  <h2>Thousands of emergencies</h2>
+  <div class="full">
+    <div class="two">
+      <div><img src="scene3d.gif"><div class="tag">Outdoor terrain + vegetation</div></div>
+      <div><img src="indoor3d.gif"><div class="tag">Indoor furnished house</div></div>
+    </div>
+    <p class="fine" style="text-align:center">Different layouts, obstacle placements, blocked corridors and fire progressions — the same agents, endlessly re-tested.</p>
+  </div>
+</section>
+
+<!-- 7 AGENTS -->
+<section class="slide">
+  <div class="kick">The agents</div>
+  <h2>Two kinds of agent: people and responders</h2>
+  <div class="row text">
+    <div>
+      <table><tr><th>agent</th><th>trying to…</th><th>sees</th></tr>
+      <tr><td><b>Civilians</b></td><td>get out — fast &amp; alive</td><td>fire-aware path to the nearest exit</td></tr>
+      <tr><td><b>Responders</b></td><td>knock the fire down, protect people</td><td>where the fire is burning + water left</td></tr></table>
+      <p>They share the same world but have different goals — a genuine multi-agent problem. Responders that keep
+      an exit clear buy the civilians time.</p>
+    </div>
+    <div><img src="marl.gif"><div class="tag">Responders (yellow) advance; civilians (blue→green) escape</div></div>
+  </div>
+</section>
+
+<!-- 8 REWARDS -->
+<section class="slide">
+  <div class="kick">Rewards</div>
+  <h2>What each agent is trying to do</h2>
+  <div class="row text">
+    <div>
+<pre>Fight the fire   R = fuel saved  = 1 − burned / fuel₀
+Get people out   minimise casualties &amp; escape time
+Work together    R = fuel saved + lives out − casualties
+                 (lives weighted over property)</pre>
+      <p class="fine">The cooperative reward is what makes responders learn to protect the escape route, not just
+      chase the biggest flames.</p>
+    </div>
+    <div><img src="indoor_compare.gif"><div class="tag">Reward in action — no suppression vs. a trained agent</div></div>
+  </div>
+</section>
+
+<!-- 9 MEASURING -->
+<section class="slide">
+  <div class="kick">Measuring safety</div>
+  <h2>Is there time to get out?</h2>
+  <div class="row text">
+    <div>
+      <p><b>ASET</b> — <b>Available</b> Safe Egress Time: how long until the building becomes untenable (from the fire).</p>
+      <p><b>RSET</b> — <b>Required</b> Safe Egress Time: detect + react + walk to an exit (from the people).</p>
+      <div class="formula" style="font-size:18px">everyone is safe ⟺ ASET − RSET &gt; 0</div>
+      <p class="fine">Plus burned %, rooms lost, damage, casualties, escape time.</p>
+    </div>
+    <div><img src="safety.png"><div class="tag">The ASET−RSET margin, scored per design</div></div>
+  </div>
+</section>
+
+<!-- 10 HOW THEY LEARN -->
+<section class="slide">
+  <div class="kick">How they learn</div>
+  <h2>Two ways to train — CEM and PPO</h2>
+  <div class="row text">
+    <div>
+      <p><b>CEM</b> — try many policies, keep the best, repeat (simple, tuning-free).<br>
+      <b>PPO</b> — a neural policy nudged by reward gradients (classic deep RL).</p>
+      <p class="fine">Same environment, both work. Honestly, the simple CEM baseline edges PPO here — common on
+      problems this small. A greedy oracle hits 100%, so the task is solvable and there's headroom.</p>
+    </div>
+    <div><img src="cem_vs_ppo.png"><div class="tag">Held-out: no-agent 47% · PPO 56% · CEM 60%</div></div>
+  </div>
+</section>
+
+<!-- 11 RESULTS -->
+<section class="slide">
+  <div class="kick">Results</div>
+  <h2>Agents contain the fire — and learn to save lives</h2>
+  <div class="row text">
+    <div>
+      <table><tr><th>scenario</th><th>baseline</th><th>trained</th></tr>
+      <tr><td>Wildfire flat / terrain</td><td class="b">42% / 64%</td><td class="good">98% / 99.6%</td></tr>
+      <tr><td>Indoor suppression</td><td class="b">47%</td><td class="good">60% fuel saved</td></tr>
+      <tr><td>Responders — casualties</td><td class="b">3.1</td><td class="good">2.2</td></tr></table>
+      <p class="fine">The learned responder puts <b>lives over property</b> — ~0.9 more people saved per run than a
+      greedy baseline, by protecting the way out.</p>
+    </div>
+    <div><img src="marl_rl.png"><div class="tag">none vs. heuristic vs. learned responders</div></div>
+  </div>
+</section>
+
+<!-- 12 DATA & TELEMETRY (VLGE) -->
+<section class="slide">
+  <div class="kick">Data &amp; telemetry</div>
+  <h2>Every run is data</h2>
+  <div class="row text">
+    <div>
+      <p class="lead">For every simulation we record the full picture: each agent's <b>trajectory</b>, speed, the
+      path taken, where it fails, and the state of the fire when it does.</p>
+      <p>Run thousands and you get a dataset showing exactly which emergencies today's policies handle — and where
+      they break. It exports in a <b>VLGE-compatible</b> shape, so it drops straight into <b>agent tracking /
+      telemetry</b> pipelines for building more robust navigation and rescue robots.</p>
+    </div>
+    <div><img src="playthrough.gif"><div class="tag">Recorded trajectories + telemetry, per run</div></div>
+  </div>
+</section>
+
+<!-- 13 SAFER BUILDINGS -->
+<section class="slide">
+  <div class="kick">Safer buildings</div>
+  <h2>Designing the fire out</h2>
+  <div class="row text">
+    <div>
+      <p>Because it's all one config, you can <b>edit the building</b> — add an exit, upgrade a finish, add
+      compartments — re-run the agents, and re-measure the safety margin.</p>
+      <p class="fine">Scored against California code (exits, sprinklers, Class-A materials). The optimised house is
+      code-compliant with a bigger ASET−RSET margin than the code-minimum one.</p>
+    </div>
+    <div><img src="curve_indoor.png"><div class="tag">Train, measure, redesign — the loop</div></div>
+  </div>
+</section>
+
+<!-- 14 LIMITATIONS -->
+<section class="slide">
+  <div class="kick">Limitations</div>
+  <h2>What this isn't — yet</h2>
+  <div class="row text">
+    <div><ul>
+      <li>A fast fire <i>model</i>, not full CFD — timing isn't calibrated to real burn rates yet.</li>
+      <li>Smoke and water are simple proxies (no fluid solver, no 3-D hose beam).</li>
+      <li>CEM ≈ PPO on this small problem; the multi-agent story is tuned on one building.</li>
+      <li>3-D view is offline for now — a walkable web world is next.</li>
+    </ul></div>
+    <div><img src="indoor_compare.gif"><div class="tag">Next: richer physics + a walkable world</div></div>
+  </div>
+</section>
+
+<!-- 15 LINKS -->
+<section class="slide">
+  <div class="kick">Try it</div>
+  <h2>Open-source, and ready to build on</h2>
+  <div class="row text">
+    <div>
+      <p>3-D fire, two agent classes, CEM + PPO, safety scoring, VLGE-compatible data — all on CPU, reproducible
+      with one script, and a ready-made Gym environment.</p>
+      <p><a href="https://github.com/Tyronita/ignis">github.com/Tyronita/ignis</a> ·
+         <a href="https://github.com/Tyronita/ignis/pull/1">Gym-env PR #1</a></p>
+    </div>
+    <div><img src="scene3d.gif"><div class="tag">Ignis</div></div>
+  </div>
+</section>
+
+<div class="nav"><button onclick="show(i-1)">← Prev</button><div class="dots" id="dots"></div><button onclick="show(i+1)">Next →</button></div>
+</div>
+<script>
+const slides=[...document.querySelectorAll('.slide')];let i=0;const dots=document.getElementById('dots');
+slides.forEach((_,k)=>{const d=document.createElement('span');d.className='dot';d.onclick=()=>show(k);dots.appendChild(d);});
+function show(n){i=Math.max(0,Math.min(slides.length-1,n));slides.forEach((s,k)=>s.style.display=k===i?'flex':'none');
+ document.getElementById('cnt').textContent=String(i+1).padStart(2,'0')+' / '+slides.length;
+ document.getElementById('bar').style.width=(i/(slides.length-1)*100)+'%';
+ [...dots.children].forEach((d,k)=>d.className='dot'+(k===i?' on':''));}
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')show(i+1);if(e.key==='ArrowLeft')show(i-1);});
+show(0);
+</script>
+</body></html>

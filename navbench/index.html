@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>NAVBENCH — Navigation Policy Robustness Benchmark</title>
+<style>
+  :root {
+    --page: #0d0d0d;
+    --surface: #161615;
+    --surface-raised: #1c1c1b;
+    --ink: #ffffff;
+    --ink-secondary: #c3c2b7;
+    --ink-muted: #85837c;
+    --gridline: #262624;
+    --baseline: #3a3a37;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.14);
+    --good: #17b869;
+    --good-wash: rgba(23,184,105,0.14);
+    --critical: #e5484d;
+    --critical-wash: rgba(229,72,77,0.14);
+    --blue: #4c8dff;
+    --blue-dim: rgba(76,141,255,0.14);
+    --shadow: 0 1px 2px rgba(0,0,0,0.4), 0 8px 24px -12px rgba(0,0,0,0.5);
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; }
+  body {
+    margin: 0;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(76,141,255,0.05), transparent 45%),
+      var(--page);
+    color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif;
+    font-size: 13px;
+    padding: 22px 26px 40px;
+    -webkit-font-smoothing: antialiased;
+  }
+  .mono { font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace; }
+
+  header {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .title-block h1 {
+    font-size: 19px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+    margin: 0 0 5px;
+  }
+  h1 .accent { color: var(--blue); }
+  .tagline {
+    color: var(--ink-muted);
+    font-size: 12.5px;
+    max-width: 680px;
+    line-height: 1.55;
+  }
+  .status-pill {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 12px 6px 10px;
+    font-size: 11.5px;
+    color: var(--ink-secondary);
+    white-space: nowrap;
+    box-shadow: var(--shadow);
+  }
+  .live-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--ink-muted); flex-shrink: 0; transition: background .2s; }
+  .live-dot.on { background: var(--good); box-shadow: 0 0 0 0 rgba(23,184,105,0.6); animation: pulse 1.8s infinite; }
+  @keyframes pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(23,184,105,0.55); }
+    70%  { box-shadow: 0 0 0 6px rgba(23,184,105,0); }
+    100% { box-shadow: 0 0 0 0 rgba(23,184,105,0); }
+  }
+
+  .layout {
+    display: grid;
+    grid-template-columns: 1fr 328px;
+    gap: 18px;
+    align-items: start;
+  }
+  .main-col { display: flex; flex-direction: column; gap: 18px; }
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+  }
+  .panel-label {
+    font-size: 10.5px;
+    letter-spacing: 0.09em;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  #mainCanvas { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--page); }
+  .chip-row { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; align-items: center; }
+  .chip {
+    background: var(--page);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 12px;
+    color: var(--ink-muted);
+    display: flex;
+    gap: 5px;
+    align-items: baseline;
+  }
+  .chip b { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 3px 9px 3px 7px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  .badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; }
+  .badge.success { background: var(--good-wash); color: var(--good); }
+  .badge.success::before { background: var(--good); }
+  .badge.collision { background: var(--critical-wash); color: var(--critical); }
+  .badge.collision::before { background: var(--critical); }
+  .badge.timeout { background: rgba(133,131,124,0.14); color: var(--ink-muted); }
+  .badge.timeout::before { background: var(--ink-muted); }
+
+  .side { display: flex; flex-direction: column; gap: 18px; }
+
+  .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat-tile {
+    background: var(--page);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    transition: border-color .15s;
+  }
+  .stat-tile.headline { border-top: 2px solid var(--blue); border-top-left-radius: 6px; border-top-right-radius: 6px; }
+  .stat-tile .label { font-size: 11px; color: var(--ink-muted); margin-bottom: 7px; }
+  .stat-tile .value { font-size: 25px; font-weight: 650; letter-spacing: -0.015em; line-height: 1; }
+
+  button, select {
+    background: var(--surface-raised);
+    color: var(--ink);
+    border: 1px solid var(--border-strong);
+    border-radius: 7px;
+    padding: 8px 12px;
+    font-family: inherit;
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: background .12s, border-color .12s, transform .06s;
+  }
+  button:hover { background: #232322; border-color: rgba(255,255,255,0.22); }
+  button:active { transform: translateY(1px); }
+  button.primary {
+    background: linear-gradient(180deg, #5c98ff, var(--blue));
+    color: #061024;
+    border-color: var(--blue);
+    font-weight: 700;
+    box-shadow: 0 2px 12px -2px rgba(76,141,255,0.5);
+  }
+  button.primary:hover { filter: brightness(1.06); }
+  select { width: 100%; }
+
+  .row { display: flex; gap: 6px; flex-wrap: wrap; }
+  .row.full button { flex: 1; }
+
+  .speed-group { display: flex; gap: 2px; background: var(--page); border: 1px solid var(--border); border-radius: 8px; padding: 3px; }
+  .speed-group button {
+    flex: 1;
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    padding: 6px 0;
+    font-size: 12px;
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .speed-group button:hover { background: rgba(255,255,255,0.05); color: var(--ink-secondary); }
+  .speed-group button.active { background: var(--blue-dim); color: var(--blue); font-weight: 700; }
+
+  label.field { display: flex; flex-direction: column; gap: 6px; font-size: 11.5px; color: var(--ink-muted); }
+  hr.sep { border: none; border-top: 1px solid var(--gridline); margin: 14px 0; }
+
+  .bar {
+    height: 8px;
+    border-radius: 4px;
+    overflow: hidden;
+    display: flex;
+    gap: 2px;
+    background: var(--page);
+  }
+  .bar > div { height: 100%; border-radius: 3px; }
+  .bar-success { background: var(--good); }
+  .bar-collision { background: var(--critical); }
+  .bar-timeout { background: var(--baseline); }
+  .legend-counts { display: flex; gap: 14px; font-size: 11.5px; color: var(--ink-secondary); margin-top: 9px; flex-wrap: wrap; }
+  .legend-counts .item { display: flex; align-items: center; gap: 6px; }
+  .legend-counts .dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+  .legend-counts b { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  #heatmapCanvas { display: block; width: 100%; max-width: 720px; height: auto; margin: 0 auto; border-radius: 6px; }
+  .heatmap-caption { color: var(--ink-muted); font-size: 11.5px; margin-top: 10px; line-height: 1.5; }
+  .heatmap-caption em { color: var(--ink-secondary); font-style: normal; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="title-block">
+    <h1>NAV<span class="accent">BENCH</span></h1>
+    <div class="tagline">
+      How do navigation policies trained on predictable layouts fail when they leave them — and how much would richer, real-environment behavioral data change that? A naive bug-style policy (forward, random-rotate-when-blocked, no planning) is run against procedurally generated rooms, each verified navigable before the episode starts.
+    </div>
+  </div>
+  <div class="status-pill"><span class="live-dot" id="liveDot"></span><span id="statusText">Paused</span></div>
+</header>
+
+<div class="layout">
+  <div class="main-col">
+    <div class="panel">
+      <div class="panel-label">Environment / Robot / Trajectory</div>
+      <canvas id="mainCanvas" width="860" height="620"></canvas>
+      <div class="chip-row">
+        <div class="chip">Episode <b id="statEpisode">0</b></div>
+        <div class="chip">Runtime <b id="statRuntime">0.0s</b></div>
+        <div class="chip">Room <b id="statRoomDims">—</b></div>
+        <div class="chip">Obstacles <b id="statObstacles">—</b></div>
+        <div class="chip">Last result <span id="statLastResult" class="badge">—</span></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">Collision Heatmap — room-normalized, accumulated across all episodes</div>
+      <canvas id="heatmapCanvas" width="700" height="360"></canvas>
+      <div class="heatmap-caption">Rooms vary in size every episode, so each collision location is normalized to its own room's <em>[0,1]×[0,1]</em> space before binning — this shows where collisions cluster relative to room shape, not raw pixel coordinates.</div>
+    </div>
+  </div>
+
+  <div class="side">
+    <div class="panel">
+      <div class="panel-label">Controls</div>
+      <div class="row full" style="margin-bottom:8px;">
+        <button id="btnStartPause" class="primary">▶ Run</button>
+        <button id="btnRunBatch">Run 100 Fast</button>
+      </div>
+      <div class="speed-group" style="margin-bottom:10px;">
+        <button class="speed active" data-speed="1">1×</button>
+        <button class="speed" data-speed="8">8×</button>
+        <button class="speed" data-speed="40">40×</button>
+        <button class="speed" data-speed="150">150×</button>
+      </div>
+      <div class="row full" style="margin-bottom:14px;">
+        <button id="btnReset">Reset Stats</button>
+      </div>
+      <label class="field">
+        Movement controller
+        <select id="controllerSelect">
+          <option value="policy">RobotPolicyController — naive bug policy</option>
+          <option value="human">HumanController — WASD / arrows</option>
+        </select>
+      </label>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">Running Statistics</div>
+      <div class="stat-grid">
+        <div class="stat-tile headline">
+          <div class="label">Success rate</div>
+          <div class="value" id="statSuccessRate">0.0%</div>
+        </div>
+        <div class="stat-tile">
+          <div class="label">Episodes run</div>
+          <div class="value" id="statCount">0</div>
+        </div>
+        <div class="stat-tile">
+          <div class="label">Avg. survival time</div>
+          <div class="value" id="statAvgSurvival">0.0s</div>
+        </div>
+        <div class="stat-tile">
+          <div class="label">Avg. path length</div>
+          <div class="value" id="statAvgPath">0px</div>
+        </div>
+      </div>
+      <hr class="sep">
+      <div class="bar">
+        <div class="bar-success" id="barSuccess" style="width:0%"></div>
+        <div class="bar-collision" id="barCollision" style="width:0%"></div>
+        <div class="bar-timeout" id="barTimeout" style="width:0%"></div>
+      </div>
+      <div class="legend-counts" id="legendCounts">
+        <span class="item"><span class="dot" style="background:var(--good)"></span><b>0</b>&nbsp;success</span>
+        <span class="item"><span class="dot" style="background:var(--critical)"></span><b>0</b>&nbsp;collision</span>
+        <span class="item"><span class="dot" style="background:var(--baseline)"></span><b>0</b>&nbsp;timeout</span>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-label">Dataset Export</div>
+      <div class="row full">
+        <button id="btnExportEpisode">Export Last Episode</button>
+      </div>
+      <div class="row full" style="margin-top:6px;">
+        <button id="btnExportSession">Export Recent Session</button>
+      </div>
+      <div class="heatmap-caption" style="margin-top:10px;">Per-timestep: timestamp, position, heading, velocity, angular_velocity, collided. Episode-level: room_seed, dimensions, obstacle_layout, result.</div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
