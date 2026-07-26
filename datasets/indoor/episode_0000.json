@@ -1,0 +1,38 @@
+{
+  "episode": "episode_0000.npz",
+  "generator": "ignis.indoor.generate.generate_scene",
+  "seed": 0,
+  "scene_source": "procedural",
+  "dims": [
+    40,
+    28,
+    16
+  ],
+  "cell_size_m": 0.25,
+  "downsample": 2,
+  "steps_recorded": 90,
+  "policy": "policy_indoor.npy",
+  "final_metrics": {
+    "step": 90,
+    "fuel_saved_pct": 12.804878048780488,
+    "burned_pct": 87.1951219512195,
+    "rooms_lost": 3,
+    "n_rooms": 4,
+    "flashover_step": 2,
+    "damage_usd": 1316.0,
+    "smoke_pct": 85.53846153846155,
+    "active_flame": 2372,
+    "contained": false
+  },
+  "channels": [
+    "fire",
+    "burned"
+  ],
+  "action_space": "discrete zoned sprinklers (4x3 + no-op)",
+  "provenance": {
+    "git_sha": "82f3515",
+    "created_utc": "2026-07-25T22:05:11.968117+00:00",
+    "tool": "Ignis",
+    "license": "MIT"
+  }
+}

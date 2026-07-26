@@ -59,6 +59,9 @@ def step(st, rng):
 
     p = (1.0 - (1.0 - P_BASE) ** eff) * st["p_mult"]
     can = st["burnable"] & (b == 0) & (~st["burned"])
+    wet = st.get("wet")
+    if wet is not None:
+        can = can & (wet < 0.5)          # wetted voxels resist ignition
     ignite = can & (rng.random(b.shape) < p)
     b[ignite] = 1.0
     st["timer"][ignite] = np.maximum(1, st["burn_time"][ignite])
@@ -83,6 +86,8 @@ def step(st, rng):
             if m.sum() > 0 and involved[m].mean() > FLASHOVER:
                 st["flashover_t"] = st["t"]
                 break
+    if wet is not None:
+        st["wet"] = wet * 0.9            # water dries over time
     st["t"] += 1
     return st
 

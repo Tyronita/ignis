@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ignis-fire"
+version = "0.2.0"
+description = "A fast fire-spread simulator and RL suppression sandbox — wildfire + 3D structural fire, as Gymnasium environments."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Ignis contributors" }]
+keywords = ["reinforcement-learning", "gymnasium", "fire", "wildfire", "simulation", "physical-ai"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = ["numpy>=1.24", "matplotlib>=3.7", "imageio>=2.30"]
+
+[project.optional-dependencies]
+gym = ["gymnasium>=0.29"]
+rl = ["gymnasium>=0.29", "stable-baselines3>=2.3"]   # PPO (deep RL) baseline
+usd = ["usd-core>=23.0"]          # experimental / future: USD scene import
+
+[project.urls]
+Homepage = "https://github.com/Tyronita/ignis"
+Repository = "https://github.com/Tyronita/ignis"
+
+# Gymnasium plugin: auto-registers Ignis-Indoor-v0 / Ignis-Wildfire-v0 when gymnasium is imported
+[project.entry-points."gymnasium.envs"]
+__root__ = "ignis.gym_env:_register"
+
+[tool.setuptools.packages.find]
+include = ["ignis*"]

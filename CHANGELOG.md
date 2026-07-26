@@ -1,5 +1,18 @@
 # Changelog
 
+## v0.2.0 — 3D indoor sim + suppression RL + Gym env (2026-07-25)
+
+- **Procedural 3D indoor generator** (`ignis/indoor/generate.py`) — seeded buildings (rooms/walls/doors/
+  furniture/materials), doorway-per-split so they're connected by construction (BFS-verified).
+- **3D voxel renderer** (`ignis/indoor/render3d.py`) — matplotlib `ax.voxels`, orbiting camera → `indoor3d.gif`.
+- **Indoor suppression RL** (`ignis/indoor/suppress.py`) — 4×3 zoned ceiling sprinklers, `wet` mechanic in
+  `indoor_env`, CEM over a generated distribution with a held-out validation re-rank; `indoor_compare.gif`.
+- **Gymnasium envs** (`ignis/gym_env.py`) — `Ignis-Indoor-v0` / `Ignis-Wildfire-v0`, registered as a gymnasium
+  plugin via `pyproject.toml`. A greedy oracle solves the indoor env (100% fuel saved) → it's solvable.
+- **Spatial fire-dataset export** (`ignis/dataset.py`) — per-step voxel fire-state + actions + a provenance manifest.
+- **Docs**: `PHYSICS.md` (every equation, real 0.25 m voxels), `SUBMISSION.md` (hackathon form fields),
+  `pyproject.toml` (pip-installable). Presentation rebuilt as a 10-page deck.
+
 ## v0.1.0 — Hackathon MVP (2026-07-25)
 
 First submittable build. The full loop works end-to-end: **simulate → train → evaluate.**

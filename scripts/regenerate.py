@@ -17,13 +17,29 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ENV = {**os.environ, "PYTHONPATH": ""}
 
 STEPS = [
-    ("train air-tanker (flat)",     [sys.executable, "-m", "ignis.train"]),
-    ("train air-tanker (terrain)",  [sys.executable, "-m", "ignis.train3d"]),
-    ("render 2D side-by-side gif",  [sys.executable, "-m", "ignis.viz2d", "save"]),
-    ("render 3D terrain scene gif", [sys.executable, "-m", "ignis.scene3d", "save"]),
-    ("indoor importer -> sim -> eval -> gif",
-        [sys.executable, "-m", "ignis.indoor.evals",
-         "ignis/indoor/examples/apartment.json"]),
+    ("train air-tanker (flat)",       [sys.executable, "-m", "ignis.train"]),
+    ("train air-tanker (terrain)",    [sys.executable, "-m", "ignis.train3d"]),
+    ("render 2D side-by-side gif",    [sys.executable, "-m", "ignis.viz2d", "save"]),
+    ("render 3D terrain scene gif",   [sys.executable, "-m", "ignis.scene3d", "save"]),
+    ("render 3D house voxel gif",     [sys.executable, "-m", "ignis.indoor.render3d"]),
+    ("train indoor suppression (CEM)",[sys.executable, "-m", "ignis.indoor.suppress"]),
+    ("synchronised plan+3D playthrough (fire+suppression+evacuation)",
+        [sys.executable, "-m", "ignis.indoor.playthrough"]),
+    ("two-class MARL (fire-engine responders vs civilians)",
+        [sys.executable, "-m", "ignis.indoor.marl"]),
+    ("safe building design (ASET-RSET) comparison",
+        [sys.executable, "-m", "ignis.indoor.safety"]),
+    ("hyperparameter comparison",
+        [sys.executable, "-m", "ignis.indoor.hpo_compare"]),
+    ("VLGE-shaped trajectory export",
+        [sys.executable, "-m", "ignis.indoor.vlge_export"]),
+    # PPO (deep RL) needs the `rl` extra (stable-baselines3); run separately:
+    #   python -m ignis.indoor.train_ppo --steps 150000
+    ("indoor baseline vs trained + compare gif",
+        [sys.executable, "-m", "ignis.indoor.evals", "--pool", "8", "--policy", "policy_indoor.npy"]),
+    ("export sample spatial dataset",
+        [sys.executable, "-m", "ignis.dataset", "--episodes", "3", "--out", "datasets/indoor",
+         "--policy", "policy_indoor.npy"]),
 ]
 
 

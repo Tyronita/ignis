@@ -1,0 +1,3719 @@
+{
+ "n_sessions": 8,
+ "source": "ignis.evacuate",
+ "schema": "VLGE characterSnapshots (subset)",
+ "sessions": [
+  {
+   "mode": 0,
+   "remoteUpdateFrequency": 1.0,
+   "startDateTime": {
+    "ticks": 0
+   },
+   "characterSnapshots": [
+    {
+     "pc": {
+      "x": 14.75,
+      "y": 1.7,
+      "z": 7.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 0
+     },
+     "time_s": 0.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 14.5,
+      "y": 1.7,
+      "z": 6.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 10000000
+     },
+     "time_s": 1.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": 1.031,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 13.25,
+      "y": 1.7,
+      "z": 6.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 20000000
+     },
+     "time_s": 2.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 12.25,
+      "y": 1.7,
+      "z": 6.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7882054380161092,
+      "z": 0.0,
+      "w": 0.6154122094026356
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 30000000
+     },
+     "time_s": 3.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -104.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 12.25,
+      "y": 1.7,
+      "z": 4.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 40000000
+     },
+     "time_s": 4.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 12.25,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 50000000
+     },
+     "time_s": 5.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 11.0,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 60000000
+     },
+     "time_s": 6.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 10.25,
+      "y": 1.7,
+      "z": 4.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.4718579255320243,
+      "z": 0.0,
+      "w": 0.8816745987679437
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 70000000
+     },
+     "time_s": 7.0,
+     "velocity_mps": 0.901,
+     "acceleration_mps2": -0.349,
+     "displacement_m": 0.901,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -56.3,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 9.75,
+      "y": 1.7,
+      "z": 4.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.28978414868843005,
+      "z": 0.0,
+      "w": 0.9570920264890529
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 80000000
+     },
+     "time_s": 8.0,
+     "velocity_mps": 0.901,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.901,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -33.7,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 8.5,
+      "y": 1.7,
+      "z": 4.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 90000000
+     },
+     "time_s": 9.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.349,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 7.25,
+      "y": 1.7,
+      "z": 4.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 100000000
+     },
+     "time_s": 10.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 6.25,
+      "y": 1.7,
+      "z": 4.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7882054380161092,
+      "z": 0.0,
+      "w": 0.6154122094026356
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 110000000
+     },
+     "time_s": 11.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -104.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 6.0,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 120000000
+     },
+     "time_s": 12.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 4.75,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 130000000
+     },
+     "time_s": 13.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 140000000
+     },
+     "time_s": 14.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 2.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 150000000
+     },
+     "time_s": 15.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 1.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 160000000
+     },
+     "time_s": 16.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.9870874576374967,
+      "z": 0.0,
+      "w": 0.16018224300696704
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 170000000
+     },
+     "time_s": 17.0,
+     "velocity_mps": 0.791,
+     "acceleration_mps2": -0.459,
+     "displacement_m": 0.791,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -161.6,
+     "movement_state": "walk"
+    }
+   ],
+   "sessionMetrics": {
+    "session_duration_s": 17.0,
+    "total_frames": 18,
+    "total_distance_m": 19.216,
+    "avg_velocity_mps": 1.13,
+    "max_velocity_mps": 1.25,
+    "net_displacement_m": 13.463
+   },
+   "templateSize": {
+    "description": "Ignis voxel house \u2014 VLGE-shaped bounds",
+    "x_min": 0.0,
+    "x_max": 18.0,
+    "y_min": 0.0,
+    "y_max": 5.5,
+    "z_min": 0.0,
+    "z_max": 13.0,
+    "width_x": 18.0,
+    "height_y": 5.5,
+    "depth_z": 13.0,
+    "unit": "world_units"
+   },
+   "agent_id": 0,
+   "outcome": "escaped"
+  },
+  {
+   "mode": 0,
+   "remoteUpdateFrequency": 1.0,
+   "startDateTime": {
+    "ticks": 0
+   },
+   "characterSnapshots": [
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 10.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 0
+     },
+     "time_s": 0.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 9.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 10000000
+     },
+     "time_s": 1.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": 1.031,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 7.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 20000000
+     },
+     "time_s": 2.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 6.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 30000000
+     },
+     "time_s": 3.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 5.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 40000000
+     },
+     "time_s": 4.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 4.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 50000000
+     },
+     "time_s": 5.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 3.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 60000000
+     },
+     "time_s": 6.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 2.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 70000000
+     },
+     "time_s": 7.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 0.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 80000000
+     },
+     "time_s": 8.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.9732489894677302,
+      "z": 0.0,
+      "w": 0.22975292054736127
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 90000000
+     },
+     "time_s": 9.0,
+     "velocity_mps": 0.559,
+     "acceleration_mps2": -0.691,
+     "displacement_m": 0.559,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -153.4,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 100000000
+     },
+     "time_s": 10.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": -0.559,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 110000000
+     },
+     "time_s": 11.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 120000000
+     },
+     "time_s": 12.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 130000000
+     },
+     "time_s": 13.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 140000000
+     },
+     "time_s": 14.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 150000000
+     },
+     "time_s": 15.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 160000000
+     },
+     "time_s": 16.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 170000000
+     },
+     "time_s": 17.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    }
+   ],
+   "sessionMetrics": {
+    "session_duration_s": 17.0,
+    "total_frames": 18,
+    "total_distance_m": 9.901,
+    "avg_velocity_mps": 0.582,
+    "max_velocity_mps": 1.25,
+    "net_displacement_m": 9.75
+   },
+   "templateSize": {
+    "description": "Ignis voxel house \u2014 VLGE-shaped bounds",
+    "x_min": 0.0,
+    "x_max": 18.0,
+    "y_min": 0.0,
+    "y_max": 5.5,
+    "z_min": 0.0,
+    "z_max": 13.0,
+    "width_x": 18.0,
+    "height_y": 5.5,
+    "depth_z": 13.0,
+    "unit": "world_units"
+   },
+   "agent_id": 1,
+   "outcome": "escaped"
+  },
+  {
+   "mode": 0,
+   "remoteUpdateFrequency": 1.0,
+   "startDateTime": {
+    "ticks": 0
+   },
+   "characterSnapshots": [
+    {
+     "pc": {
+      "x": 0.5,
+      "y": 1.7,
+      "z": 9.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 0
+     },
+     "time_s": 0.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 0.5,
+      "y": 1.7,
+      "z": 8.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 10000000
+     },
+     "time_s": 1.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 1.25,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 0.5,
+      "y": 1.7,
+      "z": 7.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 20000000
+     },
+     "time_s": 2.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 1.75,
+      "y": 1.7,
+      "z": 7.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 30000000
+     },
+     "time_s": 3.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.0,
+      "y": 1.7,
+      "z": 7.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 40000000
+     },
+     "time_s": 4.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 6.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 50000000
+     },
+     "time_s": 5.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 5.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 60000000
+     },
+     "time_s": 6.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 4.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 70000000
+     },
+     "time_s": 7.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 2.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 80000000
+     },
+     "time_s": 8.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 1.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 90000000
+     },
+     "time_s": 9.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 100000000
+     },
+     "time_s": 10.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 110000000
+     },
+     "time_s": 11.0,
+     "velocity_mps": 0.25,
+     "acceleration_mps2": -0.781,
+     "displacement_m": 0.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 120000000
+     },
+     "time_s": 12.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": -0.25,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 130000000
+     },
+     "time_s": 13.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 140000000
+     },
+     "time_s": 14.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 150000000
+     },
+     "time_s": 15.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 160000000
+     },
+     "time_s": 16.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 170000000
+     },
+     "time_s": 17.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    }
+   ],
+   "sessionMetrics": {
+    "session_duration_s": 17.0,
+    "total_frames": 18,
+    "total_distance_m": 12.092,
+    "avg_velocity_mps": 0.711,
+    "max_velocity_mps": 1.25,
+    "net_displacement_m": 9.89
+   },
+   "templateSize": {
+    "description": "Ignis voxel house \u2014 VLGE-shaped bounds",
+    "x_min": 0.0,
+    "x_max": 18.0,
+    "y_min": 0.0,
+    "y_max": 5.5,
+    "z_min": 0.0,
+    "z_max": 13.0,
+    "width_x": 18.0,
+    "height_y": 5.5,
+    "depth_z": 13.0,
+    "unit": "world_units"
+   },
+   "agent_id": 2,
+   "outcome": "escaped"
+  },
+  {
+   "mode": 0,
+   "remoteUpdateFrequency": 1.0,
+   "startDateTime": {
+    "ticks": 0
+   },
+   "characterSnapshots": [
+    {
+     "pc": {
+      "x": 8.75,
+      "y": 1.7,
+      "z": 9.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 0
+     },
+     "time_s": 0.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 8.75,
+      "y": 1.7,
+      "z": 8.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 10000000
+     },
+     "time_s": 1.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 1.25,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 8.75,
+      "y": 1.7,
+      "z": 7.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 20000000
+     },
+     "time_s": 2.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 8.25,
+      "y": 1.7,
+      "z": 6.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.9570920264890529,
+      "z": 0.0,
+      "w": 0.28978414868843005
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 30000000
+     },
+     "time_s": 3.0,
+     "velocity_mps": 0.901,
+     "acceleration_mps2": -0.349,
+     "displacement_m": 0.901,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -146.3,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 7.0,
+      "y": 1.7,
+      "z": 6.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 40000000
+     },
+     "time_s": 4.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.349,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 6.25,
+      "y": 1.7,
+      "z": 5.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.8816745987679436,
+      "z": 0.0,
+      "w": 0.47185792553202444
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 50000000
+     },
+     "time_s": 5.0,
+     "velocity_mps": 0.901,
+     "acceleration_mps2": -0.349,
+     "displacement_m": 0.901,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -123.7,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 6.25,
+      "y": 1.7,
+      "z": 4.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 60000000
+     },
+     "time_s": 6.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.349,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 6.0,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 70000000
+     },
+     "time_s": 7.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 4.75,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 80000000
+     },
+     "time_s": 8.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 90000000
+     },
+     "time_s": 9.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 2.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 100000000
+     },
+     "time_s": 10.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 1.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 110000000
+     },
+     "time_s": 11.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.9870874576374967,
+      "z": 0.0,
+      "w": 0.16018224300696704
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 120000000
+     },
+     "time_s": 12.0,
+     "velocity_mps": 0.791,
+     "acceleration_mps2": -0.459,
+     "displacement_m": 0.791,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -161.6,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 130000000
+     },
+     "time_s": 13.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": -0.791,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 140000000
+     },
+     "time_s": 14.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 150000000
+     },
+     "time_s": 15.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 160000000
+     },
+     "time_s": 16.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 170000000
+     },
+     "time_s": 17.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    }
+   ],
+   "sessionMetrics": {
+    "session_duration_s": 17.0,
+    "total_frames": 18,
+    "total_distance_m": 13.624,
+    "avg_velocity_mps": 0.801,
+    "max_velocity_mps": 1.25,
+    "net_displacement_m": 10.762
+   },
+   "templateSize": {
+    "description": "Ignis voxel house \u2014 VLGE-shaped bounds",
+    "x_min": 0.0,
+    "x_max": 18.0,
+    "y_min": 0.0,
+    "y_max": 5.5,
+    "z_min": 0.0,
+    "z_max": 13.0,
+    "width_x": 18.0,
+    "height_y": 5.5,
+    "depth_z": 13.0,
+    "unit": "world_units"
+   },
+   "agent_id": 3,
+   "outcome": "escaped"
+  },
+  {
+   "mode": 0,
+   "remoteUpdateFrequency": 1.0,
+   "startDateTime": {
+    "ticks": 0
+   },
+   "characterSnapshots": [
+    {
+     "pc": {
+      "x": 4.5,
+      "y": 1.7,
+      "z": 6.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 0
+     },
+     "time_s": 0.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 5.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7882054380161092,
+      "z": 0.0,
+      "w": 0.6154122094026356
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 10000000
+     },
+     "time_s": 1.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": 1.031,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -104.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 4.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 20000000
+     },
+     "time_s": 2.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 3.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 30000000
+     },
+     "time_s": 3.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 2.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 40000000
+     },
+     "time_s": 4.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 0.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 50000000
+     },
+     "time_s": 5.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.9732489894677302,
+      "z": 0.0,
+      "w": 0.22975292054736127
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 60000000
+     },
+     "time_s": 6.0,
+     "velocity_mps": 0.559,
+     "acceleration_mps2": -0.691,
+     "displacement_m": 0.559,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -153.4,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 70000000
+     },
+     "time_s": 7.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": -0.559,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 80000000
+     },
+     "time_s": 8.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 90000000
+     },
+     "time_s": 9.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 100000000
+     },
+     "time_s": 10.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 110000000
+     },
+     "time_s": 11.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 120000000
+     },
+     "time_s": 12.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 130000000
+     },
+     "time_s": 13.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 140000000
+     },
+     "time_s": 14.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 150000000
+     },
+     "time_s": 15.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 160000000
+     },
+     "time_s": 16.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 170000000
+     },
+     "time_s": 17.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    }
+   ],
+   "sessionMetrics": {
+    "session_duration_s": 17.0,
+    "total_frames": 18,
+    "total_distance_m": 6.59,
+    "avg_velocity_mps": 0.388,
+    "max_velocity_mps": 1.25,
+    "net_displacement_m": 5.884
+   },
+   "templateSize": {
+    "description": "Ignis voxel house \u2014 VLGE-shaped bounds",
+    "x_min": 0.0,
+    "x_max": 18.0,
+    "y_min": 0.0,
+    "y_max": 5.5,
+    "z_min": 0.0,
+    "z_max": 13.0,
+    "width_x": 18.0,
+    "height_y": 5.5,
+    "depth_z": 13.0,
+    "unit": "world_units"
+   },
+   "agent_id": 4,
+   "outcome": "escaped"
+  },
+  {
+   "mode": 0,
+   "remoteUpdateFrequency": 1.0,
+   "startDateTime": {
+    "ticks": 0
+   },
+   "characterSnapshots": [
+    {
+     "pc": {
+      "x": 4.0,
+      "y": 1.7,
+      "z": 4.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 0
+     },
+     "time_s": 0.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 3.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.9570920264890529,
+      "z": 0.0,
+      "w": 0.28978414868843005
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 10000000
+     },
+     "time_s": 1.0,
+     "velocity_mps": 0.901,
+     "acceleration_mps2": 0.901,
+     "displacement_m": 0.901,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -146.3,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 2.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 20000000
+     },
+     "time_s": 2.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.349,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 1.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 30000000
+     },
+     "time_s": 3.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 40000000
+     },
+     "time_s": 4.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 50000000
+     },
+     "time_s": 5.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": -1.031,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 60000000
+     },
+     "time_s": 6.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 70000000
+     },
+     "time_s": 7.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 80000000
+     },
+     "time_s": 8.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 90000000
+     },
+     "time_s": 9.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 100000000
+     },
+     "time_s": 10.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 110000000
+     },
+     "time_s": 11.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 120000000
+     },
+     "time_s": 12.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 130000000
+     },
+     "time_s": 13.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 140000000
+     },
+     "time_s": 14.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 150000000
+     },
+     "time_s": 15.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 160000000
+     },
+     "time_s": 16.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 170000000
+     },
+     "time_s": 17.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    }
+   ],
+   "sessionMetrics": {
+    "session_duration_s": 17.0,
+    "total_frames": 18,
+    "total_distance_m": 4.432,
+    "avg_velocity_mps": 0.261,
+    "max_velocity_mps": 1.25,
+    "net_displacement_m": 4.316
+   },
+   "templateSize": {
+    "description": "Ignis voxel house \u2014 VLGE-shaped bounds",
+    "x_min": 0.0,
+    "x_max": 18.0,
+    "y_min": 0.0,
+    "y_max": 5.5,
+    "z_min": 0.0,
+    "z_max": 13.0,
+    "width_x": 18.0,
+    "height_y": 5.5,
+    "depth_z": 13.0,
+    "unit": "world_units"
+   },
+   "agent_id": 5,
+   "outcome": "escaped"
+  },
+  {
+   "mode": 0,
+   "remoteUpdateFrequency": 1.0,
+   "startDateTime": {
+    "ticks": 0
+   },
+   "characterSnapshots": [
+    {
+     "pc": {
+      "x": 2.25,
+      "y": 1.7,
+      "z": 11.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 0
+     },
+     "time_s": 0.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 11.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 10000000
+     },
+     "time_s": 1.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 1.25,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 9.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 20000000
+     },
+     "time_s": 2.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 8.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 30000000
+     },
+     "time_s": 3.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 7.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 40000000
+     },
+     "time_s": 4.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 6.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 50000000
+     },
+     "time_s": 5.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 5.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 60000000
+     },
+     "time_s": 6.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 4.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 70000000
+     },
+     "time_s": 7.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 2.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 80000000
+     },
+     "time_s": 8.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 1.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 90000000
+     },
+     "time_s": 9.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 100000000
+     },
+     "time_s": 10.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 110000000
+     },
+     "time_s": 11.0,
+     "velocity_mps": 0.25,
+     "acceleration_mps2": -0.781,
+     "displacement_m": 0.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 120000000
+     },
+     "time_s": 12.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": -0.25,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 130000000
+     },
+     "time_s": 13.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 140000000
+     },
+     "time_s": 14.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 150000000
+     },
+     "time_s": 15.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 160000000
+     },
+     "time_s": 16.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 170000000
+     },
+     "time_s": 17.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    }
+   ],
+   "sessionMetrics": {
+    "session_duration_s": 17.0,
+    "total_frames": 18,
+    "total_distance_m": 12.092,
+    "avg_velocity_mps": 0.711,
+    "max_velocity_mps": 1.25,
+    "net_displacement_m": 10.796
+   },
+   "templateSize": {
+    "description": "Ignis voxel house \u2014 VLGE-shaped bounds",
+    "x_min": 0.0,
+    "x_max": 18.0,
+    "y_min": 0.0,
+    "y_max": 5.5,
+    "z_min": 0.0,
+    "z_max": 13.0,
+    "width_x": 18.0,
+    "height_y": 5.5,
+    "depth_z": 13.0,
+    "unit": "world_units"
+   },
+   "agent_id": 6,
+   "outcome": "escaped"
+  },
+  {
+   "mode": 0,
+   "remoteUpdateFrequency": 1.0,
+   "startDateTime": {
+    "ticks": 0
+   },
+   "characterSnapshots": [
+    {
+     "pc": {
+      "x": 10.25,
+      "y": 1.7,
+      "z": 9.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 0
+     },
+     "time_s": 0.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 9.0,
+      "y": 1.7,
+      "z": 9.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 10000000
+     },
+     "time_s": 1.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 1.25,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 8.75,
+      "y": 1.7,
+      "z": 8.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 20000000
+     },
+     "time_s": 2.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 8.75,
+      "y": 1.7,
+      "z": 7.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 30000000
+     },
+     "time_s": 3.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 8.5,
+      "y": 1.7,
+      "z": 6.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 40000000
+     },
+     "time_s": 4.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 7.25,
+      "y": 1.7,
+      "z": 6.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 50000000
+     },
+     "time_s": 5.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 6.25,
+      "y": 1.7,
+      "z": 6.0
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7882054380161092,
+      "z": 0.0,
+      "w": 0.6154122094026356
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 60000000
+     },
+     "time_s": 6.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -104.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 6.25,
+      "y": 1.7,
+      "z": 4.75
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 70000000
+     },
+     "time_s": 7.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 6.25,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 80000000
+     },
+     "time_s": 8.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 5.0,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 90000000
+     },
+     "time_s": 9.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.75,
+      "y": 1.7,
+      "z": 3.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.7071067811865476,
+      "z": 0.0,
+      "w": 0.7071067811865476
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 100000000
+     },
+     "time_s": 10.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -90.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 2.5
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 110000000
+     },
+     "time_s": 11.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.5,
+      "y": 1.7,
+      "z": 1.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 1.0,
+      "z": 0.0,
+      "w": 6.123233995736766e-17
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 120000000
+     },
+     "time_s": 12.0,
+     "velocity_mps": 1.25,
+     "acceleration_mps2": 0.219,
+     "displacement_m": 1.25,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 180.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": -0.992507556682903,
+      "z": 0.0,
+      "w": 0.12218326369570456
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 130000000
+     },
+     "time_s": 13.0,
+     "velocity_mps": 1.031,
+     "acceleration_mps2": -0.219,
+     "displacement_m": 1.031,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": -166.0,
+     "movement_state": "walk"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 140000000
+     },
+     "time_s": 14.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": -1.031,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 150000000
+     },
+     "time_s": 15.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 160000000
+     },
+     "time_s": 16.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    },
+    {
+     "pc": {
+      "x": 3.25,
+      "y": 1.7,
+      "z": 0.25
+     },
+     "rc": {
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "w": 1.0
+     },
+     "floorType": "",
+     "timestamp": {
+      "ticks": 170000000
+     },
+     "time_s": 17.0,
+     "velocity_mps": 0.0,
+     "acceleration_mps2": 0.0,
+     "displacement_m": 0.0,
+     "height_above_ground": 0.0,
+     "camera_yaw_deg": 0.0,
+     "movement_state": "stationary"
+    }
+   ],
+   "sessionMetrics": {
+    "session_duration_s": 17.0,
+    "total_frames": 18,
+    "total_distance_m": 15.154,
+    "avg_velocity_mps": 0.891,
+    "max_velocity_mps": 1.25,
+    "net_displacement_m": 11.6
+   },
+   "templateSize": {
+    "description": "Ignis voxel house \u2014 VLGE-shaped bounds",
+    "x_min": 0.0,
+    "x_max": 18.0,
+    "y_min": 0.0,
+    "y_max": 5.5,
+    "z_min": 0.0,
+    "z_max": 13.0,
+    "width_x": 18.0,
+    "height_y": 5.5,
+    "depth_z": 13.0,
+    "unit": "world_units"
+   },
+   "agent_id": 7,
+   "outcome": "escaped"
+  }
+ ]
+}

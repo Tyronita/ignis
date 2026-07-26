@@ -31,6 +31,7 @@ class VoxelScene:
     budgets: dict = field(default_factory=dict)
     room_id: np.ndarray = None
     room_names: list = field(default_factory=list)
+    exits: list = field(default_factory=list)   # [x,y] cells occupants escape to
 
     @property
     def nx(self): return self.dims[0]

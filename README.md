@@ -7,6 +7,7 @@ It runs in pure NumPy (no GPU, no heavy deps), so it clones and runs anywhere in
 yet it already shows the full loop: **simulate spread → train a suppression policy → measure the outcome.**
 
 > 🗓️ Built at a **6-hour hackathon** — [event on Luma](https://luma.com/8e27tzl0).
+> 📊 **Live presentation (10 pages):** https://tyronita.github.io/ignis/
 > Hackathon MVP (v0.1). Built to be built upon — see the [roadmap](#roadmap).
 >
 > **Reproduce everything with one readable script:** [`scripts/regenerate.py`](scripts/regenerate.py) (or `./run.ps1` / `./run.sh`) — trains the agents, saves every GIF below, runs the indoor eval, and syncs media into the presentation.
@@ -27,7 +28,9 @@ yet it already shows the full loop: **simulate spread → train a suppression po
 |---|---|---|
 | Wildfire, flat | **41.7%** fuel saved | **~98%** |
 | Wildfire, hilly terrain | **63.9%** fuel saved | **99.6%** |
-| Indoor apartment (no suppression) | 3/3 rooms lost, $1384 damage, flashover @ step 4 | *suppression = next build* |
+| Indoor, RL zoned sprinklers (held-out buildings) | **43.9%** fuel saved · $698 | **55.2%** · $573 |
+
+*(Indoor is measured on held-out generated buildings; a greedy oracle reaches 100% fuel saved, so the linear policy has clear headroom.)*
 
 <p align="center">
   <img src="assets/compare2d.gif" width="80%" alt="2D wildfire: no tanker vs trained tanker"/><br/>
@@ -41,11 +44,66 @@ yet it already shows the full loop: **simulate spread → train a suppression po
 </p>
 
 <p align="center">
-  <img src="assets/indoor.gif" width="70%" alt="Indoor apartment fire"/><br/>
-  <em>Indoor apartment: top view (room-to-room spread) + side view (plume climbs, ceiling fills). No suppression = total loss — the baseline the future policy is scored against.</em>
+  <img src="assets/playthrough.gif" width="92%" alt="synchronised plan + 3D playthrough"/><br/>
+  <em><b>One run, two synchronised views</b> — architectural <b>plan</b> (left) + <b>3D</b> (right). Fire + RL suppression + evacuation together; occupant <b>trajectories</b> overlaid (blue = escaping, green = out, red = casualty). House run: <b>8/8 escaped in 17 s</b>.</em>
 </p>
 
-<p align="center"><img src="assets/curve.png" width="60%" alt="learning curve"/></p>
+**Two tasks** (see [TASKS.md](TASKS.md)): **1) RL fire suppression** (zoned sprinklers, CEM) · **2) evacuation** (fire-aware shortest path, real 1.2 m/s walking, trajectory recording). Real constants: 0.25 m voxels, `dt = 1 s`.
+
+<p align="center">
+  <img src="assets/indoor3d.gif" width="70%" alt="3D house voxel fire"/><br/>
+  <em>A realistic <b>15×11×5 m house</b> (5 rooms, real furniture — sofa, beds, kitchen island, wardrobes) built upward from the floor plan; fire ignites in the kitchen and climbs. Slow 3D orbit, 0.25 m voxels.</em>
+</p>
+
+<p align="center">
+  <img src="assets/indoor_compare.gif" width="80%" alt="indoor suppression"/><br/>
+  <em>Indoor fire: no suppression (left) vs. the RL-trained zoned sprinklers (right).</em>
+</p>
+
+<p align="center">
+  <img src="assets/indoor.gif" width="70%" alt="Indoor apartment fire"/><br/>
+  <em>Top view (room-to-room spread) + side view (plume climbs, ceiling fills).</em>
+</p>
+
+<p align="center"><img src="assets/curve.png" width="48%" alt="wildfire learning curve"/> <img src="assets/curve_indoor.png" width="48%" alt="indoor learning curve"/></p>
+
+## Use it as a Gym environment
+Ignis ships as a **Gymnasium** environment so anyone can train their own agents:
+```python
+import gymnasium as gym
+import ignis.gym_env                       # registers the envs
+env = gym.make("Ignis-Indoor-v0")          # 3D structural-fire suppression (novel)
+# env = gym.make("Ignis-Wildfire-v0")      # 2D wildfire (baseline; cf. JaxWildfire)
+obs, info = env.reset(seed=0)
+obs, reward, terminated, truncated, info = env.step(env.action_space.sample())
+```
+`Ignis-Indoor-v0`: `Discrete(13)` action (4×3 sprinkler zones + no-op), observation = per-zone burning +
+water budget, reward = fuel saved. It is a **solvable** env — a greedy oracle reaches 100% fuel saved.
+
+Because it's a standard Gym env, **deep RL drops in**:
+```python
+from stable_baselines3 import PPO          # pip install stable-baselines3
+model = PPO("MlpPolicy", "Ignis-Indoor-v0").learn(150_000)
+```
+We train **both** and compare (same env): **CEM** (black-box policy search) vs **PPO** (deep RL, MLP policy).
+Held-out: no-agent **47%** · PPO **56%** · **CEM 60%** — see `assets/cem_vs_ppo.png`. Honest finding: **CEM edges
+PPO** here — a known result on low-dimensional control (CEM is a strong, tuning-free baseline).
+
+## Wins so far
+- ✅ 2D wildfire CA + air-tanker RL — **41.7% → ~98%** fuel saved
+- ✅ 3D slope-coupled terrain (fire climbs uphill) — **63.9% → 99.6%**
+- ✅ **3D structural/indoor fire** (rooms, walls, doors, materials, buoyancy) — *novel vs JaxWildfire*
+- ✅ **Procedural building generator** (seeded, connectivity-checked) → unlimited RL distribution
+- ✅ **RL suppression** via zoned sprinklers, CEM-trained across the distribution
+- ✅ **Gymnasium env** (`Ignis-Indoor-v0` / `-Wildfire-v0`) — reusable by others
+- ✅ **Spatial fire dataset export** with a provenance manifest (data pillar)
+- ✅ **Evacuation task** — occupants escape via fire-aware shortest path (real 1.2 m/s), trajectories recorded; house: **8/8 out in 17 s**
+- ✅ **Synchronised plan + 3D playthrough** — both views time-locked, every run
+- ✅ **Realistic furnished house** — 18×13×5.5 m, 6 rooms, dining set (table + 4 chairs), beds, sofas, kitchen, bathroom, front-door exit
+- ✅ **PPO (deep RL)** trained on the Gym env + honest **CEM-vs-PPO** comparison (CEM is competitive)
+- ✅ **Two-class MARL** — fire-engine **responders** (engine + operators) vs **civilians**; responders ~halve fire damage
+- ✅ **Safety scorer** (ASET − RSET) + **California standards** + **materials grading** — [SAFETY.md](SAFETY.md)
+- ✅ Configurable real dimensions (0.25 m voxels, `dt=1 s`), full **equations in [PHYSICS.md](PHYSICS.md)**, tasks in [TASKS.md](TASKS.md)
 
 ---
 
